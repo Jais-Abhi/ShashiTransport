@@ -1,14 +1,13 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { motion, useInView } from 'framer-motion'
-import { Truck, Users, MapPin, Star, Package, Clock } from 'lucide-react'
 
 const stats = [
-  { icon: Truck,   value: 580,  suffix: '+', label: 'Trucks in Fleet',     color: '#f97316' },
-  { icon: Users,   value: 10000, suffix: '+', label: 'Satisfied Clients',   color: '#3b82f6' },
-  { icon: MapPin,  value: 28,   suffix: '',  label: 'States Covered',      color: '#10b981' },
-  { icon: Star,    value: 15,   suffix: '+', label: 'Years of Experience',  color: '#8b5cf6' },
-  { icon: Package, value: 500,  suffix: '+', label: 'Daily Deliveries',     color: '#f97316' },
-  { icon: Clock,   value: 99,   suffix: '%', label: 'On-Time Delivery Rate',color: '#ef4444' },
+  { emoji: '🚛', value: 580,    suffix: '+', label: 'Owned Trucks',         sub: 'All maintained in-house' },
+  { emoji: '🏭', value: 12,     suffix: '',  label: 'Loading Hubs',         sub: 'Across Bihar, UP & Bengal' },
+  { emoji: '📦', value: 500,    suffix: '+', label: 'Consignments/Day',     sub: 'Average daily dispatches' },
+  { emoji: '🛣️', value: 4,      suffix: 'L+',label: 'KM Covered Daily',     sub: 'Combined fleet distance' },
+  { emoji: '⚖️', value: 8000,   suffix: '+', label: 'Tons Moved/Month',     sub: 'Across all cargo types' },
+  { emoji: '✅', value: 99,     suffix: '%', label: 'On-Time Delivery',     sub: 'Industry-best track record' },
 ]
 
 function Counter({ target, suffix }) {
@@ -38,51 +37,64 @@ function Counter({ target, suffix }) {
 
 export default function Stats() {
   return (
-    <section className="py-20 bg-gradient-to-br from-[#1e3a5f] to-[#0f2540] relative overflow-hidden">
-      {/* BG decoration */}
-      <div className="absolute top-0 left-0 w-80 h-80 bg-[#f97316]/10 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2" />
-      <div className="absolute bottom-0 right-0 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl translate-x-1/2 translate-y-1/2" />
+    <section className="relative overflow-hidden">
+      {/* Highway road strip at top */}
+      <div className="h-8 bg-[#111827] relative overflow-hidden">
+        <div className="absolute inset-y-0 left-0 right-0 flex items-center">
+          <div className="highway-dashes flex gap-16 overflow-hidden">
+            {Array.from({length: 20}).map((_,i)=>(
+              <div key={i} className="h-2 w-20 shrink-0 bg-[#f97316] rounded opacity-60"/>
+            ))}
+          </div>
+        </div>
+      </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-14"
-        >
-          <h2 className="text-3xl sm:text-4xl font-bold text-white">
-            Numbers That Speak <span className="text-[#f97316]">For Themselves</span>
-          </h2>
-          <p className="text-white/60 mt-3">Trusted by thousands across India for over 15 years</p>
-        </motion.div>
+      <div className="py-20 bg-gradient-to-br from-[#1e3a5f] to-[#0f2540] relative">
+        {/* BG texture */}
+        <div className="absolute inset-0 opacity-[0.04]" style={{
+          backgroundImage:'radial-gradient(circle, #f97316 1px, transparent 1px)',
+          backgroundSize:'40px 40px'
+        }}/>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
-          {stats.map((s, i) => {
-            const Icon = s.icon
-            return (
-              <motion.div
-                key={s.label}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: i * 0.08 }}
-                whileHover={{ scale: 1.06, y: -4 }}
-                className="group bg-white/8 border border-white/10 rounded-2xl p-5 text-center hover:bg-white/15 transition-all duration-300 cursor-default"
-              >
-                <div
-                  className="w-12 h-12 rounded-xl flex items-center justify-center mx-auto mb-3 transition-transform duration-300 group-hover:scale-110"
-                  style={{ background: `${s.color}20`, border: `1px solid ${s.color}40` }}
-                >
-                  <Icon className="w-6 h-6" style={{ color: s.color }} />
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <motion.div initial={{opacity:0,y:20}} whileInView={{opacity:1,y:0}} viewport={{once:true}} transition={{duration:0.6}}
+            className="text-center mb-14">
+            <span className="inline-block bg-[#f97316]/20 text-[#f97316] font-semibold text-sm px-4 py-1.5 rounded-full mb-4 uppercase tracking-wide border border-[#f97316]/20">
+              By The Numbers
+            </span>
+            <h2 className="text-3xl sm:text-4xl font-bold text-white">
+              15 Years. One Promise. <span className="text-[#f97316]">Always On Time.</span>
+            </h2>
+            <p className="text-white/50 mt-3 text-sm">Numbers that define The Shashi Transport Company</p>
+          </motion.div>
+
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+            {stats.map((s, i) => (
+              <motion.div key={s.label}
+                initial={{opacity:0,y:30}} whileInView={{opacity:1,y:0}} viewport={{once:true}}
+                transition={{duration:0.5,delay:i*0.08}}
+                whileHover={{scale:1.06,y:-4}}
+                className="group bg-white/5 border border-white/10 rounded-2xl p-5 text-center hover:bg-white/12 hover:border-[#f97316]/30 transition-all duration-300 cursor-default">
+                <div className="text-3xl mb-3 group-hover:scale-110 transition-transform duration-300">{s.emoji}</div>
+                <div className="text-2xl font-bold text-[#f97316] mb-1">
+                  <Counter target={s.value} suffix={s.suffix}/>
                 </div>
-                <div className="text-2xl font-bold text-white mb-1">
-                  <Counter target={s.value} suffix={s.suffix} />
-                </div>
-                <div className="text-white/50 text-xs leading-tight">{s.label}</div>
+                <div className="text-white/80 text-xs font-semibold mb-1">{s.label}</div>
+                <div className="text-white/35 text-[10px] leading-tight">{s.sub}</div>
               </motion.div>
-            )
-          })}
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* Road strip at bottom */}
+      <div className="h-8 bg-[#111827] relative overflow-hidden">
+        <div className="absolute inset-y-0 left-0 right-0 flex items-center">
+          <div className="highway-dashes-rev flex gap-16 overflow-hidden">
+            {Array.from({length: 20}).map((_,i)=>(
+              <div key={i} className="h-2 w-20 shrink-0 bg-[#f97316] rounded opacity-60"/>
+            ))}
+          </div>
         </div>
       </div>
     </section>
