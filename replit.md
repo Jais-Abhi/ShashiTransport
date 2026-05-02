@@ -24,7 +24,6 @@ A professional, multi-page transportation & logistics website for **The Shashi T
 | `/about` | About Us — Story, Timeline, Values, Leadership Team |
 | `/services` | Services — FTL, LTL, Cold Chain, Express, Insured, Reverse Logistics |
 | `/gallery` | Gallery — Filterable masonry grid with lightbox |
-| `/tracking` | Track Shipment — Live status with timeline (demo: STC001234, STC005678) |
 | `/contact` | Contact — Form, offices, quick contact |
 | `/get-quote` | Get Quote — 3-step wizard form |
 
@@ -43,7 +42,7 @@ src/
   components/
     layout/    Navbar.jsx, Footer.jsx
     home/      Hero.jsx, IndiaMap.jsx, Stats.jsx, ServicesPreview.jsx, WhyUs.jsx, Testimonials.jsx, Process.jsx, HomeCTA.jsx
-  pages/       Home.jsx, About.jsx, Services.jsx, Gallery.jsx, Contact.jsx, GetQuote.jsx, Tracking.jsx
+  pages/       Home.jsx, About.jsx, Services.jsx, Gallery.jsx, Contact.jsx, GetQuote.jsx
   lib/         utils.ts
 ```
 

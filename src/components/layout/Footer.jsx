@@ -30,7 +30,6 @@ const links = {
     { label: 'Cold Chain', to: '/services' },
   ],
   Support: [
-    { label: 'Track Shipment', to: '/tracking' },
     { label: 'Get Quote', to: '/get-quote' },
     { label: 'Contact Us', to: '/contact' },
   ],

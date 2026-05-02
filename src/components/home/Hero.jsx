@@ -151,11 +151,11 @@ export default function Hero() {
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-200" />
               </Link>
               <Link
-                to="/tracking"
+                to="/contact"
                 className="flex items-center gap-2 bg-white/10 border border-white/20 text-white font-semibold px-8 py-4 rounded-xl hover:bg-white/20 transition-colors duration-200"
               >
                 <Package className="w-5 h-5" />
-                Track Shipment
+                Contact Us
               </Link>
             </motion.div>
 

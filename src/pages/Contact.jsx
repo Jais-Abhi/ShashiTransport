@@ -82,7 +82,7 @@ export default function Contact() {
                     <select required name="subject" value={form.subject} onChange={handleChange} className="w-full border border-slate-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#1e3a5f]/30 focus:border-[#1e3a5f] transition-all bg-white text-slate-700">
                       <option value="">Select a subject</option>
                       <option value="quote">Get a Quote</option>
-                      <option value="tracking">Shipment Tracking</option>
+                      <option value="inquiry">General Inquiry</option>
                       <option value="complaint">Complaint / Feedback</option>
                       <option value="partnership">Business Partnership</option>
                       <option value="other">Other</option>
