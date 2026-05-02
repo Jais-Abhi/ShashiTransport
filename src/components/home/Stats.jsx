@@ -43,7 +43,7 @@ export default function Stats() {
         <div className="absolute inset-y-0 left-0 right-0 flex items-center">
           <div className="highway-dashes">
             {[0,1].map(copy => (
-              <div key={copy} className="flex gap-16 shrink-0">
+              <div key={copy} className="flex gap-16 shrink-0 pr-16">
                 {Array.from({length: 12}).map((_,i)=>(
                   <div key={i} className="h-2 w-20 shrink-0 bg-[#f97316] rounded opacity-60"/>
                 ))}
@@ -96,7 +96,7 @@ export default function Stats() {
         <div className="absolute inset-y-0 left-0 right-0 flex items-center">
           <div className="highway-dashes-rev">
             {[0,1].map(copy => (
-              <div key={copy} className="flex gap-16 shrink-0">
+              <div key={copy} className="flex gap-16 shrink-0 pr-16">
                 {Array.from({length: 12}).map((_,i)=>(
                   <div key={i} className="h-2 w-20 shrink-0 bg-[#f97316] rounded opacity-60"/>
                 ))}
