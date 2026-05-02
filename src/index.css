@@ -157,7 +157,7 @@ body {
 }
 .ticker-track:hover { animation-play-state: paused; }
 
-/* Highway dashes scroll */
+/* Highway dashes scroll — two copies rendered, translate -50% = one copy width = seamless */
 @keyframes highwayLeft {
   from { transform: translateX(0); }
   to   { transform: translateX(-50%); }
@@ -166,5 +166,5 @@ body {
   from { transform: translateX(-50%); }
   to   { transform: translateX(0); }
 }
-.highway-dashes     { animation: highwayLeft  1s linear infinite; display: flex; }
-.highway-dashes-rev { animation: highwayRight 1s linear infinite; display: flex; }
+.highway-dashes     { display: flex; animation: highwayLeft  5s linear infinite; will-change: transform; }
+.highway-dashes-rev { display: flex; animation: highwayRight 5s linear infinite; will-change: transform; }

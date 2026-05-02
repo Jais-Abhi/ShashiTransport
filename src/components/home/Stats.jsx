@@ -41,9 +41,13 @@ export default function Stats() {
       {/* Highway road strip at top */}
       <div className="h-8 bg-[#111827] relative overflow-hidden">
         <div className="absolute inset-y-0 left-0 right-0 flex items-center">
-          <div className="highway-dashes flex gap-16 overflow-hidden">
-            {Array.from({length: 20}).map((_,i)=>(
-              <div key={i} className="h-2 w-20 shrink-0 bg-[#f97316] rounded opacity-60"/>
+          <div className="highway-dashes">
+            {[0,1].map(copy => (
+              <div key={copy} className="flex gap-16 shrink-0">
+                {Array.from({length: 12}).map((_,i)=>(
+                  <div key={i} className="h-2 w-20 shrink-0 bg-[#f97316] rounded opacity-60"/>
+                ))}
+              </div>
             ))}
           </div>
         </div>
@@ -90,9 +94,13 @@ export default function Stats() {
       {/* Road strip at bottom */}
       <div className="h-8 bg-[#111827] relative overflow-hidden">
         <div className="absolute inset-y-0 left-0 right-0 flex items-center">
-          <div className="highway-dashes-rev flex gap-16 overflow-hidden">
-            {Array.from({length: 20}).map((_,i)=>(
-              <div key={i} className="h-2 w-20 shrink-0 bg-[#f97316] rounded opacity-60"/>
+          <div className="highway-dashes-rev">
+            {[0,1].map(copy => (
+              <div key={copy} className="flex gap-16 shrink-0">
+                {Array.from({length: 12}).map((_,i)=>(
+                  <div key={i} className="h-2 w-20 shrink-0 bg-[#f97316] rounded opacity-60"/>
+                ))}
+              </div>
             ))}
           </div>
         </div>
