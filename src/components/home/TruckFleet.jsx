@@ -7,18 +7,13 @@ import { Link } from 'react-router-dom'
 function SmallTruckSVG() {
   return (
     <svg viewBox="0 0 3146 1700" className="w-full h-auto" aria-hidden="true">
-      <defs>
-        <style>{`
-          @keyframes miniRoad { from{transform:translateX(0)} to{transform:translateX(80px)} }
-          .mini-road { animation: miniRoad 1s linear infinite; }
-        `}</style>
-      </defs>
       {/* Sky / road background */}
       <rect width="3146" height="1700" fill="#e0f2fe"/>
       <rect y="1350" width="3146" height="350" fill="#1e293b"/>
       <rect y="1370" width="3146" height="330" fill="#334155"/>
       {/* Road center dashes */}
-      <g className="mini-road">
+      <g>
+        <animateTransform attributeName="transform" type="translate" from="0 0" to="400 0" dur="1.2s" repeatCount="indefinite"/>
         {[-400,0,400,800,1200,1600,2000,2400,2800,3200].map((x,i)=>(
           <rect key={i} x={x} y="1500" width="280" height="30" rx="15" fill="#f97316" opacity="0.55"/>
         ))}
@@ -105,16 +100,11 @@ function SmallTruckSVG() {
 function MediumTruckSVG() {
   return (
     <svg viewBox="0 0 3146 1700" className="w-full h-auto" aria-hidden="true">
-      <defs>
-        <style>{`
-          @keyframes medRoad { from{transform:translateX(0)} to{transform:translateX(80px)} }
-          .med-road { animation: medRoad 0.9s linear infinite; }
-        `}</style>
-      </defs>
       <rect width="3146" height="1700" fill="#eff6ff"/>
       <rect y="1350" width="3146" height="350" fill="#1e293b"/>
       <rect y="1370" width="3146" height="330" fill="#334155"/>
-      <g className="med-road">
+      <g>
+        <animateTransform attributeName="transform" type="translate" from="0 0" to="400 0" dur="1.1s" repeatCount="indefinite"/>
         {[-400,0,400,800,1200,1600,2000,2400,2800,3200].map((x,i)=>(
           <rect key={i} x={x} y="1500" width="280" height="30" rx="15" fill="#f97316" opacity="0.55"/>
         ))}
@@ -185,16 +175,11 @@ function MediumTruckSVG() {
 function HeavyTruckSVG() {
   return (
     <svg viewBox="0 0 4021 1322" className="w-full h-auto" aria-hidden="true">
-      <defs>
-        <style>{`
-          @keyframes hvyRoad { from{transform:translateX(0)} to{transform:translateX(80px)} }
-          .hvy-road { animation: hvyRoad 0.75s linear infinite; }
-        `}</style>
-      </defs>
       <rect width="4021" height="1322" fill="#f0fdf4"/>
       <rect y="1100" width="4021" height="222" fill="#1e293b"/>
       <rect y="1120" width="4021" height="202" fill="#334155"/>
-      <g className="hvy-road">
+      <g>
+        <animateTransform attributeName="transform" type="translate" from="0 0" to="400 0" dur="0.9s" repeatCount="indefinite"/>
         {[-400,0,400,800,1200,1600,2000,2400,2800,3200,3600,4000].map((x,i)=>(
           <rect key={i} x={x} y="1200" width="280" height="22" rx="11" fill="#f97316" opacity="0.55"/>
         ))}
