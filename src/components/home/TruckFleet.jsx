@@ -52,7 +52,7 @@ function SmallTruckSVG() {
       <rect x="918" y="25" width="60" height="1058" fill="#ED1B2E"/>
       <rect x="918" y="25" width="8" height="1058" fill="#EF4345"/>
       {/* Company text on trailer */}
-      <text x="2050" y="580" textAnchor="middle" fill="white" fontSize="120" fontWeight="900" fontFamily="sans-serif" opacity="0.15" letterSpacing="8">SHASHI TRANSPORT</text>
+      <text x="2050" y="580" textAnchor="middle" fill="white" fontSize="95" fontWeight="900" fontFamily="sans-serif" opacity="0.7" letterSpacing="4">THE SHASHI TRANSPORT COMPANY</text>
       {/* Reflector panels */}
       <rect x="1564" y="1052" width="159" height="25" fill="#000024"/>
       <rect x="2323" y="1052" width="159" height="25" fill="#000024"/>
@@ -155,13 +155,9 @@ function MediumTruckSVG() {
         const colors=['#0f2240','#2d5282','#1e3a5f']
         return <rect key={i} x={x} y="76" width={i%3===2?34:42} height="956" fill={colors[i%3]}/>
       })}
-      <rect x="918" y="25" width="2128" height="40" fill="#f97316"/>
-      <rect x="918" y="1040" width="2128" height="43" fill="#f97316" opacity="0.8"/>
       <rect x="2986" y="25" width="60" height="1058" fill="#1e3a5f"/>
-      <rect x="3039" y="25" width="7" height="1058" fill="#f97316"/>
       <rect x="918" y="25" width="60" height="1058" fill="#1e3a5f"/>
-      <text x="2050" y="590" textAnchor="middle" fill="#f97316" fontSize="110" fontWeight="900" fontFamily="sans-serif" opacity="0.9" letterSpacing="6">SHASHI TRANSPORT CO.</text>
-      <text x="2050" y="730" textAnchor="middle" fill="white" fontSize="70" fontFamily="sans-serif" opacity="0.4" letterSpacing="14">22FT · SINGLE AXLE · PATNA</text>
+      <text x="2050" y="555" textAnchor="middle" fill="white" fontSize="95" fontWeight="900" fontFamily="sans-serif" opacity="0.7" letterSpacing="4">THE SHASHI TRANSPORT COMPANY</text>
       <rect x="1564" y="1052" width="159" height="25" fill="#000024"/>
       <rect x="2323" y="1052" width="159" height="25" fill="#000024"/>
 
@@ -245,35 +241,27 @@ function HeavyTruckSVG() {
 
       {/* ── TRAILER 1 (left) ── navy */}
       <rect x="818" y="20" width="1563" height="778" rx="10" fill="#1e3a5f"/>
-      <rect x="818" y="20" width="1563" height="40" fill="#f97316"/>
-      <rect x="818" y="756" width="1563" height="42" fill="#f97316" opacity="0.75"/>
       <rect x="861" y="57" width="1476" height="703" fill="#162d4a"/>
       {[863,894,882,957,988,976,1052,1082,1070,1146,1177,1164,1240,1271,1258,1334,1365,1352,1428,1459,1446,1522,1553,1540,1616,1647,1634,1710,1741,1729,1804,1835,1823,1898,1929,1917,1993,2023,2011,2087,2118,2105,2181,2212,2199,2275,2306,2293].map((x,i)=>{
         const colors=['#0f2240','#2d5282','#1e3a5f']
         return <rect key={i} x={x} y="57" width={i%3===2?25:31} height="703" fill={colors[i%3]}/>
       })}
       <rect x="2337" y="20" width="44" height="778" fill="#1e3a5f"/>
-      <rect x="2376" y="20" width="5" height="778" fill="#f97316"/>
       <rect x="818" y="20" width="44" height="778" fill="#1e3a5f"/>
       {/* Text on trailer 1 */}
-      <text x="1598" y="440" textAnchor="middle" fill="#f97316" fontSize="90" fontWeight="900" fontFamily="sans-serif" opacity="0.9" letterSpacing="4">SHASHI</text>
-      <text x="1598" y="550" textAnchor="middle" fill="white" fontSize="60" fontFamily="sans-serif" opacity="0.4" letterSpacing="10">TRANSPORT CO.</text>
+      <text x="1598" y="430" textAnchor="middle" fill="white" fontSize="80" fontWeight="900" fontFamily="sans-serif" opacity="0.72" letterSpacing="3">THE SHASHI</text>
 
       {/* ── TRAILER 2 (right) ── slightly lighter navy */}
       <rect x="2335" y="20" width="1563" height="778" rx="10" fill="#1e3a5f"/>
-      <rect x="2335" y="20" width="1563" height="40" fill="#f97316"/>
-      <rect x="2335" y="756" width="1563" height="42" fill="#f97316" opacity="0.75"/>
       <rect x="2378" y="57" width="1476" height="703" fill="#162d4a"/>
       {[2380,2411,2399,2475,2505,2493,2569,2600,2587,2663,2694,2681,2757,2788,2775,2851,2882,2869,2945,2976,2963,3039,3070,3057,3133,3164,3151,3227,3258,3246,3321,3352,3340,3415,3446,3434,3510,3540,3528,3604,3635,3622,3698,3729,3716,3792,3823,3810].map((x,i)=>{
         const colors=['#0f2240','#2d5282','#1e3a5f']
         return <rect key={i} x={x} y="57" width={i%3===2?25:31} height="703" fill={colors[i%3]}/>
       })}
       <rect x="3855" y="20" width="44" height="778" fill="#1e3a5f"/>
-      <rect x="3893" y="20" width="5" height="778" fill="#f97316"/>
       <rect x="2335" y="20" width="44" height="778" fill="#1e3a5f"/>
       {/* Text on trailer 2 */}
-      <text x="3115" y="440" textAnchor="middle" fill="#f97316" fontSize="90" fontWeight="900" fontFamily="sans-serif" opacity="0.9" letterSpacing="4">PATNA · INDIA</text>
-      <text x="3115" y="550" textAnchor="middle" fill="white" fontSize="55" fontFamily="sans-serif" opacity="0.4" letterSpacing="8">40FT MULTI-AXLE</text>
+      <text x="3115" y="430" textAnchor="middle" fill="white" fontSize="80" fontWeight="900" fontFamily="sans-serif" opacity="0.72" letterSpacing="3">TRANSPORT COMPANY</text>
 
       {/* ── CHASSIS / UNDERCARRIAGE ── */}
       <rect x="778" y="784" width="3069" height="209" fill="#97999C"/>
