@@ -75,7 +75,7 @@ export default function Process() {
               transition={{duration:5, repeat:Infinity, ease:'linear', repeatDelay:1}}
               className="absolute top-1/2 -translate-y-1/2"
             >
-              <div className="text-[22px]">🚛</div>
+              <div className="text-[22px]" style={{transform:'scaleX(-1)'}}>🚛</div>
             </motion.div>
           </div>
 
