@@ -6,16 +6,34 @@ import { Link } from 'react-router-dom'
 /* ─── Small truck (from Figma) — used for Mini category ─── */
 function SmallTruckSVG() {
   return (
-    <svg viewBox="0 0 3146 1700" className="w-full h-auto" aria-hidden="true">
-      {/* Sky / road background */}
-      <rect width="3146" height="1700" fill="#e0f2fe"/>
-      <rect y="1350" width="3146" height="350" fill="#1e293b"/>
-      <rect y="1370" width="3146" height="330" fill="#334155"/>
+    <svg viewBox="-550 -420 4300 2750" className="w-full h-auto" aria-hidden="true">
+      <defs>
+        <linearGradient id="miniSkyGrad" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stopColor="#04091a"/>
+          <stop offset="60%" stopColor="#0b1e38"/>
+          <stop offset="82%" stopColor="#122848"/>
+          <stop offset="93%" stopColor="#7c2d12" stopOpacity="0.5"/>
+          <stop offset="100%" stopColor="#111827"/>
+        </linearGradient>
+      </defs>
+      {/* Sky */}
+      <rect x="-550" y="-420" width="4300" height="2750" fill="url(#miniSkyGrad)"/>
+      {/* Stars */}
+      {[[200,-300],[600,-180],[1100,-350],[1700,-200],[2400,-310],[3100,-150],[3500,-280],[400,-80],[900,-260],[2000,-80],[2800,-220]].map(([sx,sy],i)=>(
+        <circle key={i} cx={sx} cy={sy} r={i%3===0?12:8} fill="white" opacity={i%2===0?0.6:0.35}/>
+      ))}
+      {/* Horizon glow */}
+      <rect x="-550" y="1290" width="4300" height="80" fill="#ea580c" opacity="0.10"/>
+      {/* Road surface */}
+      <rect x="-550" y="1350" width="4300" height="980" fill="#111827"/>
+      <rect x="-550" y="1375" width="4300" height="955" fill="#1a2640"/>
+      {/* Road shoulder line */}
+      <rect x="-550" y="1352" width="4300" height="7" fill="#f97316" opacity="0.25"/>
       {/* Road center dashes */}
       <g>
         <animateTransform attributeName="transform" type="translate" from="0 0" to="400 0" dur="1.2s" repeatCount="indefinite"/>
-        {[-400,0,400,800,1200,1600,2000,2400,2800,3200].map((x,i)=>(
-          <rect key={i} x={x} y="1500" width="280" height="30" rx="15" fill="#f97316" opacity="0.55"/>
+        {[-800,-400,0,400,800,1200,1600,2000,2400,2800,3200,3600].map((x,i)=>(
+          <rect key={i} x={x} y="1510" width="260" height="28" rx="14" fill="#f97316" opacity="0.5"/>
         ))}
       </g>
 
@@ -99,14 +117,34 @@ function SmallTruckSVG() {
 /* ─── Medium truck — small SVG scaled up, recolored blue ─── */
 function MediumTruckSVG() {
   return (
-    <svg viewBox="100 80 2750 1460" className="w-full h-auto" aria-hidden="true">
-      <rect width="3146" height="1700" fill="#eff6ff"/>
-      <rect y="1350" width="3146" height="350" fill="#1e293b"/>
-      <rect y="1370" width="3146" height="330" fill="#334155"/>
+    <svg viewBox="-350 -320 3950 2500" className="w-full h-auto" aria-hidden="true">
+      <defs>
+        <linearGradient id="medSkyGrad" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stopColor="#04091a"/>
+          <stop offset="58%" stopColor="#0b1e38"/>
+          <stop offset="80%" stopColor="#122848"/>
+          <stop offset="92%" stopColor="#7c2d12" stopOpacity="0.55"/>
+          <stop offset="100%" stopColor="#111827"/>
+        </linearGradient>
+      </defs>
+      {/* Sky */}
+      <rect x="-350" y="-320" width="3950" height="2500" fill="url(#medSkyGrad)"/>
+      {/* Stars */}
+      {[[300,-240],[750,-140],[1300,-280],[1900,-160],[2500,-240],[400,-60],[1000,-200],[2200,-60]].map(([sx,sy],i)=>(
+        <circle key={i} cx={sx} cy={sy} r={i%3===0?11:7} fill="white" opacity={i%2===0?0.55:0.3}/>
+      ))}
+      {/* Horizon glow */}
+      <rect x="-350" y="1295" width="3950" height="70" fill="#ea580c" opacity="0.12"/>
+      {/* Road surface */}
+      <rect x="-350" y="1350" width="3950" height="830" fill="#111827"/>
+      <rect x="-350" y="1374" width="3950" height="806" fill="#1a2640"/>
+      {/* Road shoulder line */}
+      <rect x="-350" y="1352" width="3950" height="7" fill="#f97316" opacity="0.25"/>
+      {/* Road center dashes */}
       <g>
         <animateTransform attributeName="transform" type="translate" from="0 0" to="400 0" dur="1.1s" repeatCount="indefinite"/>
-        {[-400,0,400,800,1200,1600,2000,2400,2800,3200].map((x,i)=>(
-          <rect key={i} x={x} y="1500" width="280" height="30" rx="15" fill="#f97316" opacity="0.55"/>
+        {[-800,-400,0,400,800,1200,1600,2000,2400,2800,3200,3600].map((x,i)=>(
+          <rect key={i} x={x} y="1510" width="260" height="28" rx="14" fill="#f97316" opacity="0.5"/>
         ))}
       </g>
 
@@ -174,14 +212,34 @@ function MediumTruckSVG() {
 /* ─── Heavy truck (from Figma large SVG) — two trailer sections ─── */
 function HeavyTruckSVG() {
   return (
-    <svg viewBox="0 0 4021 1322" className="w-full h-auto" aria-hidden="true">
-      <rect width="4021" height="1322" fill="#f0fdf4"/>
-      <rect y="1100" width="4021" height="222" fill="#1e293b"/>
-      <rect y="1120" width="4021" height="202" fill="#334155"/>
+    <svg viewBox="-450 -300 5100 2150" className="w-full h-auto" aria-hidden="true">
+      <defs>
+        <linearGradient id="hvySkyGrad" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stopColor="#04091a"/>
+          <stop offset="60%" stopColor="#0b1e38"/>
+          <stop offset="82%" stopColor="#122848"/>
+          <stop offset="92%" stopColor="#7c2d12" stopOpacity="0.5"/>
+          <stop offset="100%" stopColor="#111827"/>
+        </linearGradient>
+      </defs>
+      {/* Sky */}
+      <rect x="-450" y="-300" width="5100" height="2150" fill="url(#hvySkyGrad)"/>
+      {/* Stars */}
+      {[[200,-220],[700,-120],[1400,-250],[2100,-140],[2900,-210],[3600,-130],[4200,-240],[500,-50],[1100,-180],[2500,-50],[3200,-190]].map(([sx,sy],i)=>(
+        <circle key={i} cx={sx} cy={sy} r={i%3===0?11:7} fill="white" opacity={i%2===0?0.55:0.3}/>
+      ))}
+      {/* Horizon glow */}
+      <rect x="-450" y="1048" width="5100" height="65" fill="#ea580c" opacity="0.11"/>
+      {/* Road surface */}
+      <rect x="-450" y="1100" width="5100" height="750" fill="#111827"/>
+      <rect x="-450" y="1122" width="5100" height="728" fill="#1a2640"/>
+      {/* Road shoulder line */}
+      <rect x="-450" y="1102" width="5100" height="7" fill="#f97316" opacity="0.25"/>
+      {/* Road center dashes */}
       <g>
         <animateTransform attributeName="transform" type="translate" from="0 0" to="400 0" dur="0.9s" repeatCount="indefinite"/>
-        {[-400,0,400,800,1200,1600,2000,2400,2800,3200,3600,4000].map((x,i)=>(
-          <rect key={i} x={x} y="1200" width="280" height="22" rx="11" fill="#f97316" opacity="0.55"/>
+        {[-800,-400,0,400,800,1200,1600,2000,2400,2800,3200,3600,4000,4400].map((x,i)=>(
+          <rect key={i} x={x} y="1210" width="260" height="22" rx="11" fill="#f97316" opacity="0.5"/>
         ))}
       </g>
 
