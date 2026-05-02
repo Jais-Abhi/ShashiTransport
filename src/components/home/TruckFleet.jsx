@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom'
 /* ─── Small truck (from Figma) — used for Mini category ─── */
 function SmallTruckSVG() {
   return (
-    <svg viewBox="-550 -420 4300 2750" className="w-full h-auto" aria-hidden="true">
+    <svg viewBox="-200 -160 3650 2180" className="w-full h-auto" aria-hidden="true">
       <defs>
         <linearGradient id="miniSkyGrad" x1="0" y1="0" x2="0" y2="1">
           <stop offset="0%" stopColor="#04091a"/>

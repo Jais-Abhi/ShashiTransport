@@ -19,208 +19,158 @@ const badges = [
 
 function TruckScene() {
   return (
-    <svg viewBox="0 0 520 230" className="w-full h-auto" aria-hidden="true">
+    <svg viewBox="-150 -210 4450 1820" className="w-full h-auto" aria-hidden="true">
       <defs>
-        <linearGradient id="skyG" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stopColor="#0a1628"/>
-          <stop offset="100%" stopColor="#1e3a5f"/>
+        <linearGradient id="heroSkyG" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stopColor="#04091a"/>
+          <stop offset="58%" stopColor="#0b1e38"/>
+          <stop offset="80%" stopColor="#122848"/>
+          <stop offset="92%" stopColor="#7c2d12" stopOpacity="0.45"/>
+          <stop offset="100%" stopColor="#111827"/>
         </linearGradient>
-        <linearGradient id="roadG" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stopColor="#1a1f2e"/>
-          <stop offset="100%" stopColor="#0d1018"/>
-        </linearGradient>
-        <linearGradient id="cabG" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0%" stopColor="#f97316"/>
-          <stop offset="100%" stopColor="#c2560a"/>
-        </linearGradient>
-        <linearGradient id="trailerG" x1="0" y1="0" x2="1" y2="0">
-          <stop offset="0%" stopColor="#1e3a5f"/>
-          <stop offset="100%" stopColor="#162d4a"/>
-        </linearGradient>
-        <radialGradient id="headlightG" cx="50%" cy="50%" r="50%">
-          <stop offset="0%" stopColor="#fff7d6" stopOpacity="1"/>
-          <stop offset="100%" stopColor="#fbbf24" stopOpacity="0.6"/>
-        </radialGradient>
-        <filter id="glow">
-          <feGaussianBlur stdDeviation="3" result="blur"/>
-          <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
-        </filter>
-        <style>{`
-          @keyframes roadMove {
-            from { transform: translateX(0); }
-            to   { transform: translateX(110px); }
-          }
-          @keyframes smokeUp {
-            0%   { opacity:0.7; transform:translateY(0) scale(1); }
-            100% { opacity:0;   transform:translateY(-18px) scale(1.6); }
-          }
-          @keyframes wheelSpin {
-            from { transform-origin: center; transform: rotate(0deg); }
-            to   { transform-origin: center; transform: rotate(360deg); }
-          }
-          .road-dashes { animation: roadMove 0.9s linear infinite; }
-          .smoke1 { animation: smokeUp 1.2s ease-out infinite; }
-          .smoke2 { animation: smokeUp 1.2s ease-out 0.4s infinite; }
-          .smoke3 { animation: smokeUp 1.2s ease-out 0.8s infinite; }
-        `}</style>
       </defs>
 
       {/* Sky */}
-      <rect width="520" height="230" fill="url(#skyG)"/>
-
+      <rect x="-150" y="-210" width="4450" height="1820" fill="url(#heroSkyG)"/>
       {/* Stars */}
-      {[[30,15],[80,8],[150,22],[230,10],[310,18],[420,6],[480,14],[500,28]].map(([x,y],i)=>(
-        <circle key={i} cx={x} cy={y} r={Math.random()*1.2+0.5} fill="white" opacity={0.4+Math.random()*0.4}/>
+      {[[180,-170],[550,-100],[1050,-160],[1650,-80],[2200,-140],[2900,-60],[3500,-130],[3900,-80],[700,-50],[1400,-120],[2600,-90],[3200,-160]].map(([sx,sy],i)=>(
+        <circle key={i} cx={sx} cy={sy} r={i%3===0?10:6} fill="white" opacity={i%2===0?0.55:0.3}/>
       ))}
-
       {/* Moon */}
-      <circle cx="460" cy="28" r="14" fill="#fef3c7" opacity="0.9"/>
-      <circle cx="467" cy="22" r="11" fill="#1e3a5f"/>
+      <circle cx="3900" cy="-120" r="70" fill="#fef3c7" opacity="0.85"/>
+      <circle cx="3930" cy="-138" r="55" fill="#0b1e38"/>
 
-      {/* Road ground */}
-      <rect x="0" y="165" width="520" height="65" fill="url(#roadG)"/>
-
-      {/* Asphalt texture */}
-      <rect x="0" y="168" width="520" height="62" fill="#1a1f2e" rx="0"/>
-
-      {/* Road edge lines */}
-      <rect x="0" y="170" width="520" height="3" fill="#4b5563" opacity="0.5"/>
-      <rect x="0" y="224" width="520" height="2" fill="#374151" opacity="0.4"/>
-
-      {/* Animated center dashes */}
-      <g className="road-dashes">
-        {[-110,-0,110,220,330,440,550].map((x,i)=>(
-          <rect key={i} x={x} y="196" width="70" height="4" rx="2" fill="#f97316" opacity="0.55"/>
+      {/* Horizon glow */}
+      <rect x="-150" y="1048" width="4450" height="65" fill="#ea580c" opacity="0.11"/>
+      {/* Road surface */}
+      <rect x="-150" y="1100" width="4450" height="510" fill="#111827"/>
+      <rect x="-150" y="1122" width="4450" height="488" fill="#1a2640"/>
+      {/* Road shoulder */}
+      <rect x="-150" y="1102" width="4450" height="7" fill="#f97316" opacity="0.25"/>
+      {/* Road center dashes */}
+      <g>
+        <animateTransform attributeName="transform" type="translate" from="0 0" to="400 0" dur="0.9s" repeatCount="indefinite"/>
+        {[-800,-400,0,400,800,1200,1600,2000,2400,2800,3200,3600,4000,4400].map((x,i)=>(
+          <rect key={i} x={x} y="1210" width="260" height="22" rx="11" fill="#f97316" opacity="0.5"/>
         ))}
       </g>
 
-      {/* White shoulder dashes */}
-      <g className="road-dashes" style={{animationDuration:'1.2s'}}>
-        {[-110,-0,110,220,330,440,550].map((x,i)=>(
-          <rect key={i} x={x+20} y="183" width="30" height="2" rx="1" fill="white" opacity="0.2"/>
-        ))}
-      </g>
+      {/* ── TRAILER 1 (left) ── */}
+      <rect x="818" y="20" width="1563" height="778" rx="10" fill="#1e3a5f"/>
+      <rect x="818" y="20" width="1563" height="40" fill="#f97316"/>
+      <rect x="818" y="756" width="1563" height="42" fill="#f97316" opacity="0.75"/>
+      <rect x="861" y="57" width="1476" height="703" fill="#162d4a"/>
+      {[863,894,882,957,988,976,1052,1082,1070,1146,1177,1164,1240,1271,1258,1334,1365,1352,1428,1459,1446,1522,1553,1540,1616,1647,1634,1710,1741,1729,1804,1835,1823,1898,1929,1917,1993,2023,2011,2087,2118,2105,2181,2212,2199,2275,2306,2293].map((x,i)=>{
+        const colors=['#0f2240','#2d5282','#1e3a5f']
+        return <rect key={i} x={x} y="57" width={i%3===2?25:31} height="703" fill={colors[i%3]}/>
+      })}
+      <rect x="2337" y="20" width="44" height="778" fill="#1e3a5f"/>
+      <rect x="2376" y="20" width="5" height="778" fill="#f97316"/>
+      <rect x="818" y="20" width="44" height="778" fill="#1e3a5f"/>
+      <text x="1598" y="430" textAnchor="middle" fill="#f97316" fontSize="90" fontWeight="900" fontFamily="sans-serif" opacity="0.9" letterSpacing="4">SHASHI</text>
+      <text x="1598" y="540" textAnchor="middle" fill="white" fontSize="60" fontFamily="sans-serif" opacity="0.4" letterSpacing="10">TRANSPORT CO.</text>
 
-      {/* ─── TRAILER ─── */}
-      {/* Main trailer box */}
-      <rect x="128" y="76" width="335" height="88" rx="3" fill="url(#trailerG)" stroke="#f9731615" strokeWidth="1.5"/>
-      {/* Top orange stripe */}
-      <rect x="128" y="76" width="335" height="7" rx="3" fill="#f97316" opacity="0.9"/>
-      {/* Bottom reflector strip */}
-      <rect x="128" y="157" width="335" height="7" rx="0" fill="#f97316" opacity="0.7"/>
-      {/* Trailer rivets top row */}
-      {[140,170,200,230,260,290,320,350,380,410,440].map((x,i)=>(
-        <circle key={i} cx={x} cy="80" r="2.5" fill="#2d4a6f"/>
-      ))}
-      {/* Trailer rivets bottom row */}
-      {[140,170,200,230,260,290,320,350,380,410,440].map((x,i)=>(
-        <circle key={i} cx={x} cy="157" r="2.5" fill="#2d4a6f"/>
-      ))}
-      {/* Horizontal body panel lines */}
-      <line x1="128" y1="110" x2="463" y2="110" stroke="#2d4a6f" strokeWidth="1" opacity="0.7"/>
-      <line x1="128" y1="132" x2="463" y2="132" stroke="#2d4a6f" strokeWidth="1" opacity="0.7"/>
-      {/* Company text on trailer */}
-      <text x="295" y="102" textAnchor="middle" fill="#f97316" fontSize="11" fontWeight="800" fontFamily="sans-serif" letterSpacing="3" opacity="0.9">SHASHI TRANSPORT CO.</text>
-      <text x="295" y="119" textAnchor="middle" fill="white" fontSize="7" fontFamily="sans-serif" letterSpacing="5" opacity="0.5">PATNA · BIHAR · INDIA</text>
-      <text x="295" y="147" textAnchor="middle" fill="#94a3b8" fontSize="8" fontFamily="monospace" letterSpacing="2" opacity="0.6">STC-GJ-14-T-4820</text>
-      {/* Rear doors */}
-      <line x1="295" y1="83" x2="295" y2="157" stroke="#2d4a6f" strokeWidth="1.5" opacity="0.7"/>
-      <rect x="460" y="83" width="3" height="74" rx="1" fill="#2d4a6f"/>
+      {/* ── TRAILER 2 (right) ── */}
+      <rect x="2335" y="20" width="1563" height="778" rx="10" fill="#1e3a5f"/>
+      <rect x="2335" y="20" width="1563" height="40" fill="#f97316"/>
+      <rect x="2335" y="756" width="1563" height="42" fill="#f97316" opacity="0.75"/>
+      <rect x="2378" y="57" width="1476" height="703" fill="#162d4a"/>
+      {[2380,2411,2399,2475,2505,2493,2569,2600,2587,2663,2694,2681,2757,2788,2775,2851,2882,2869,2945,2976,2963,3039,3070,3057,3133,3164,3151,3227,3258,3246,3321,3352,3340,3415,3446,3434,3510,3540,3528,3604,3635,3622,3698,3729,3716,3792,3823,3810].map((x,i)=>{
+        const colors=['#0f2240','#2d5282','#1e3a5f']
+        return <rect key={i} x={x} y="57" width={i%3===2?25:31} height="703" fill={colors[i%3]}/>
+      })}
+      <rect x="3855" y="20" width="44" height="778" fill="#1e3a5f"/>
+      <rect x="3893" y="20" width="5" height="778" fill="#f97316"/>
+      <rect x="2335" y="20" width="44" height="778" fill="#1e3a5f"/>
+      <text x="3115" y="430" textAnchor="middle" fill="#f97316" fontSize="90" fontWeight="900" fontFamily="sans-serif" opacity="0.9" letterSpacing="4">PATNA · INDIA</text>
+      <text x="3115" y="540" textAnchor="middle" fill="white" fontSize="55" fontFamily="sans-serif" opacity="0.4" letterSpacing="8">40FT MULTI-AXLE</text>
 
-      {/* ─── CAB ─── */}
-      {/* Main cab body */}
-      <rect x="48" y="82" width="84" height="82" rx="6" fill="url(#cabG)"/>
-      {/* Cab top/roof */}
-      <rect x="52" y="76" width="76" height="14" rx="4" fill="#e06010"/>
-      {/* Windshield */}
-      <rect x="62" y="89" width="55" height="44" rx="5" fill="#87ceeb" opacity="0.65"/>
-      {/* Windshield glare */}
-      <rect x="65" y="92" width="18" height="12" rx="3" fill="white" opacity="0.25"/>
-      {/* Cab door line */}
-      <line x1="105" y1="89" x2="105" y2="164" stroke="#c2560a" strokeWidth="1.5" opacity="0.5"/>
-      {/* Door handle */}
-      <rect x="106" y="128" width="16" height="4" rx="2" fill="#c2560a"/>
-      {/* Cab side window */}
-      <rect x="108" y="94" width="18" height="22" rx="3" fill="#87ceeb" opacity="0.5"/>
-      {/* Side mirror */}
-      <rect x="42" y="98" width="12" height="8" rx="2" fill="#c2560a"/>
-      <line x1="48" y1="106" x2="48" y2="114" stroke="#c2560a" strokeWidth="2"/>
+      {/* ── CHASSIS ── */}
+      <rect x="778" y="784" width="3069" height="209" fill="#97999C"/>
+      <rect x="778" y="876" width="3069" height="117" fill="#5E6063"/>
+      <rect x="777" y="784" width="3180" height="89" fill="#231F20"/>
+      <rect x="829" y="866" width="3023" height="56" fill="#56595B"/>
 
-      {/* Bumper / Front face */}
-      <rect x="22" y="136" width="28" height="28" rx="3" fill="#c2560a"/>
-      {/* Grill */}
-      <rect x="24" y="138" width="24" height="20" rx="2" fill="#1e3a5f"/>
-      {[0,4,8,12,16].map((y,i)=>(
-        <line key={i} x1="24" y1={140+y} x2="48" y2={140+y} stroke="#f97316" strokeWidth="0.7" opacity="0.5"/>
-      ))}
-      {/* Bumper bar */}
-      <rect x="18" y="158" width="36" height="6" rx="3" fill="#555"/>
+      {/* ── WHEEL ARCH BOGIES ── */}
+      <path fill="#393B3C" d="M1416,1126H937c-53,0-96-43-96-96s43-96,96-96h480c53,0,96,43,96,96S1469,1126,1416,1126z"/>
+      <path fill="#393B3C" d="M2928,1126H2449c-53,0-96-43-96-96s43-96,96-96h480c53,0,96,43,96,96S2981,1126,2928,1126z"/>
+      {/* Suspension arms */}
+      <polygon fill="#393B3C" points="2240,941 2170,941 2140,941 1625,941 1519,1102 1563,1102 1653,966 2140,966 2302,1102 2346,1102"/>
+      <polygon fill="#393B3C" points="3751,941 3681,941 3652,941 3137,941 3031,1102 3074,1102 3165,966 3652,966 3814,1102 3857,1102"/>
 
-      {/* Headlight */}
-      <rect x="24" y="120" width="20" height="14" rx="3" fill="#fef9c3" filter="url(#glow)" opacity="0.9"/>
-      <rect x="26" y="122" width="16" height="10" rx="2" fill="white" opacity="0.6"/>
-      {/* Headlight beam rays */}
-      <line x1="18" y1="124" x2="2" y2="118" stroke="#fbbf24" strokeWidth="1" opacity="0.3"/>
-      <line x1="18" y1="127" x2="0" y2="126" stroke="#fbbf24" strokeWidth="1.5" opacity="0.4"/>
-      <line x1="18" y1="130" x2="2" y2="134" stroke="#fbbf24" strokeWidth="1" opacity="0.3"/>
-
+      {/* ── CAB ── */}
+      <path fill="#B5B79A" d="M795,406c0,0-1.6-53-82-61H359c0,0-36-5-64,61L161,666c0,0-9.8,29-35,29c0,0-58,10-58,60l-7,198c0,0,0.1,43,18,45h321l62-65h333L795,406z"/>
+      <polygon fill="#1E1A22" points="302,432 184,683 493,686 493,432"/>
+      <polygon fill="#3C3841" points="313,439 206,666 485,668 485,439"/>
+      <path fill="#9FA288" d="M328,412h441c0,0-29-58-67-55H359c0,0-26,0.9-37,22l-20,33H328z"/>
+      <path fill="#9FA288" d="M185,711c0,0-68-10-87,30l4,201l297,6c0,0,49-78,79-76V710L185,711z"/>
+      <path fill="#3D3F3C" d="M117,765c-6.6,28-24,48-39,45c-15-4-22-29-15-57c6.6-28,24-48,39-45C117,712,124,737,117,765z"/>
+      <ellipse cx="87" cy="761" rx="30" ry="44" fill="#E6E8E3"/>
+      <ellipse cx="87" cy="745" rx="14" ry="16" fill="#fff"/>
+      <path fill="#2D2E2F" d="M91,973v98c0,0-5.8,21,22,25h280l89-149h242l74,126V924H131L91,973z"/>
+      <rect x="97" y="1067" width="315" height="56" fill="#231F20"/>
+      <rect x="3765" y="853" width="132" height="142" fill="#423D3E"/>
       {/* Exhaust pipe */}
-      <rect x="55" y="36" width="8" height="48" rx="4" fill="#444"/>
-      <rect x="57" y="34" width="4" height="6" rx="2" fill="#555"/>
-      {/* Smoke puffs */}
-      <circle className="smoke1" cx="59" cy="34" r="5" fill="#888" opacity="0.6"/>
-      <circle className="smoke2" cx="62" cy="28" r="6" fill="#777" opacity="0.5"/>
-      <circle className="smoke3" cx="57" cy="22" r="7" fill="#666" opacity="0.3"/>
+      <rect x="3914" y="806" width="46" height="73" fill="#CF6528"/>
+      <path fill="#1E1A22" d="M527,431v252h95c0,0,56-5,64-39V449c0,0-5-30-34-31C652,430,526,430,527,431z"/>
+      <path fill="#3C3841" d="M535,448V665h82c0,0,48-4,55-34V457c0,0-4-26-30-27C642,430,534,447,535,448z"/>
+      <polygon fill="#9FA288" points="717,435 717,914 778,914 778,434"/>
 
-      {/* Coupling/fifth wheel area */}
-      <rect x="124" y="152" width="12" height="12" rx="2" fill="#555"/>
+      {/* Exhaust smoke (SVG-native animate) */}
+      <circle cx="3937" cy="790" r="22" fill="#888" opacity="0.5">
+        <animate attributeName="cy" from="790" to="680" dur="1.3s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values="0.5;0" dur="1.3s" repeatCount="indefinite"/>
+        <animate attributeName="r" values="22;40" dur="1.3s" repeatCount="indefinite"/>
+      </circle>
+      <circle cx="3945" cy="760" r="28" fill="#777" opacity="0.35">
+        <animate attributeName="cy" from="760" to="640" dur="1.3s" begin="0.45s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values="0.35;0" dur="1.3s" begin="0.45s" repeatCount="indefinite"/>
+        <animate attributeName="r" values="28;50" dur="1.3s" begin="0.45s" repeatCount="indefinite"/>
+      </circle>
+      <circle cx="3930" cy="740" r="18" fill="#666" opacity="0.2">
+        <animate attributeName="cy" from="740" to="610" dur="1.3s" begin="0.9s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values="0.2;0" dur="1.3s" begin="0.9s" repeatCount="indefinite"/>
+        <animate attributeName="r" values="18;38" dur="1.3s" begin="0.9s" repeatCount="indefinite"/>
+      </circle>
 
-      {/* ─── WHEELS ─── */}
-      {/* Front wheel */}
-      <circle cx="90" cy="182" r="22" fill="#111" stroke="#3a3a3a" strokeWidth="2.5"/>
-      <circle cx="90" cy="182" r="14" fill="#222" stroke="#444" strokeWidth="1.5"/>
-      <circle cx="90" cy="182" r="5" fill="#555"/>
-      {[0,60,120,180,240,300].map((a,i)=>{
-        const rad=a*Math.PI/180
-        return <line key={i} x1={90+5*Math.cos(rad)} y1={182+5*Math.sin(rad)} x2={90+13*Math.cos(rad)} y2={182+13*Math.sin(rad)} stroke="#555" strokeWidth="2.5"/>
-      })}
-      {/* Front wheel hubcap bolts */}
-      {[0,60,120,180,240,300].map((a,i)=>{
-        const rad=a*Math.PI/180
-        return <circle key={i} cx={90+9*Math.cos(rad)} cy={182+9*Math.sin(rad)} r="1.5" fill="#888"/>
-      })}
+      {/* ── WHEELS ── */}
+      <circle cx="604" cy="1136" r="166" fill="#17191A"/>
+      <circle cx="604" cy="1134" r="151" fill="#393B3C"/>
+      <circle cx="604" cy="1135" r="83" fill="#2F3133"/>
+      <circle cx="604" cy="1132" r="52" fill="#5A5B5E"/>
+      <path fill="#525456" d="M604,1028c-59,0-108,48-108,108s48,108,108,108s108-48,108-108S663,1028,604,1028z M604,1232c-53,0-96-43-96-96s43-96,96-96s96,43,96,96S657,1232,604,1232z"/>
+      <circle cx="1759" cy="1136" r="166" fill="#17191A"/>
+      <circle cx="1759" cy="1134" r="151" fill="#393B3C"/>
+      <circle cx="1759" cy="1135" r="83" fill="#2F3133"/>
+      <circle cx="1759" cy="1132" r="52" fill="#5A5B5E"/>
+      <path fill="#525456" d="M1759,1028c-59,0-108,48-108,108s48,108,108,108s108-48,108-108S1818,1028,1759,1028z M1759,1232c-53,0-96-43-96-96s43-96,96-96s96,43,96,96S1812,1232,1759,1232z"/>
+      <circle cx="2106" cy="1136" r="166" fill="#17191A"/>
+      <circle cx="2106" cy="1134" r="151" fill="#393B3C"/>
+      <circle cx="2106" cy="1135" r="83" fill="#2F3133"/>
+      <circle cx="2106" cy="1132" r="52" fill="#5A5B5E"/>
+      <path fill="#525456" d="M2106,1028c-59,0-108,48-108,108s48,108,108,108s108-48,108-108S2165,1028,2106,1028z M2106,1232c-53,0-96-43-96-96s43-96,96-96s96,43,96,96S2159,1232,2106,1232z"/>
+      <circle cx="3279" cy="1136" r="166" fill="#17191A"/>
+      <circle cx="3279" cy="1134" r="151" fill="#393B3C"/>
+      <circle cx="3279" cy="1135" r="83" fill="#2F3133"/>
+      <circle cx="3279" cy="1132" r="52" fill="#5A5B5E"/>
+      <path fill="#525456" d="M3279,1028c-59,0-108,48-108,108s48,108,108,108s108-48,108-108S3338,1028,3279,1028z M3279,1232c-53,0-96-43-96-96s43-96,96-96s96,43,96,96S3332,1232,3279,1232z"/>
+      <circle cx="3625" cy="1136" r="166" fill="#17191A"/>
+      <circle cx="3625" cy="1134" r="151" fill="#393B3C"/>
+      <circle cx="3625" cy="1135" r="83" fill="#2F3133"/>
+      <circle cx="3625" cy="1132" r="52" fill="#5A5B5E"/>
+      <path fill="#525456" d="M3625,1028c-59,0-108,48-108,108s48,108,108,108s108-48,108-108S3684,1028,3625,1028z M3625,1232c-53,0-96-43-96-96s43-96,96-96s96,43,96,96S3678,1232,3625,1232z"/>
 
-      {/* Drive axle dual wheels */}
-      <circle cx="268" cy="182" r="22" fill="#111" stroke="#3a3a3a" strokeWidth="2.5"/>
-      <circle cx="268" cy="182" r="14" fill="#222" stroke="#444" strokeWidth="1.5"/>
-      <circle cx="268" cy="182" r="5" fill="#555"/>
-      <circle cx="290" cy="182" r="22" fill="#111" stroke="#3a3a3a" strokeWidth="2.5"/>
-      <circle cx="290" cy="182" r="14" fill="#222" stroke="#444" strokeWidth="1.5"/>
-      <circle cx="290" cy="182" r="5" fill="#555"/>
+      {/* ── INFO BADGES (baked into SVG) ── */}
+      {/* Fleet Online — top left */}
+      <rect x="60" y="-160" width="560" height="130" rx="22" fill="#f97316" opacity="0.93"/>
+      <text x="340" y="-105" textAnchor="middle" fill="white" fontSize="38" fontWeight="600" fontFamily="sans-serif" letterSpacing="4" opacity="0.85">FLEET ONLINE</text>
+      <text x="340" y="-52" textAnchor="middle" fill="white" fontSize="72" fontWeight="900" fontFamily="sans-serif">234 Trucks</text>
 
-      {/* Rear trailer axle dual wheels */}
-      <circle cx="392" cy="182" r="22" fill="#111" stroke="#3a3a3a" strokeWidth="2.5"/>
-      <circle cx="392" cy="182" r="14" fill="#222" stroke="#444" strokeWidth="1.5"/>
-      <circle cx="392" cy="182" r="5" fill="#555"/>
-      <circle cx="414" cy="182" r="22" fill="#111" stroke="#3a3a3a" strokeWidth="2.5"/>
-      <circle cx="414" cy="182" r="14" fill="#222" stroke="#444" strokeWidth="1.5"/>
-      <circle cx="414" cy="182" r="5" fill="#555"/>
-
-      {/* Mudflap front */}
-      <rect x="112" y="162" width="6" height="20" rx="1" fill="#333"/>
-      {/* Mudflap rear */}
-      <rect x="368" y="162" width="6" height="20" rx="1" fill="#333"/>
-
-      {/* Route sign floating top right */}
-      <rect x="360" y="14" width="145" height="50" rx="8" fill="#1e3a5f" stroke="#f97316" strokeWidth="1.5" opacity="0.9"/>
-      <text x="432" y="30" textAnchor="middle" fill="#f97316" fontSize="7" fontWeight="700" fontFamily="sans-serif" letterSpacing="2">ACTIVE ROUTE</text>
-      <text x="432" y="44" textAnchor="middle" fill="white" fontSize="10" fontWeight="800" fontFamily="sans-serif">Patna → Mumbai</text>
-      <text x="432" y="56" textAnchor="middle" fill="#94a3b8" fontSize="7" fontFamily="monospace">1,847 KM · ETA 28h</text>
-
-      {/* Speed chip top left */}
-      <rect x="14" y="14" width="100" height="38" rx="8" fill="#f97316" opacity="0.92"/>
-      <text x="64" y="28" textAnchor="middle" fill="white" fontSize="7" fontWeight="600" fontFamily="sans-serif" letterSpacing="1">FLEET ONLINE</text>
-      <text x="64" y="44" textAnchor="middle" fill="white" fontSize="14" fontWeight="800" fontFamily="sans-serif">234 Trucks</text>
+      {/* Active Route — top right */}
+      <rect x="3480" y="-160" width="820" height="130" rx="22" fill="#1e3a5f" stroke="#f97316" strokeWidth="5" opacity="0.95"/>
+      <text x="3890" y="-105" textAnchor="middle" fill="#f97316" fontSize="34" fontWeight="700" fontFamily="sans-serif" letterSpacing="5">ACTIVE ROUTE</text>
+      <text x="3890" y="-55" textAnchor="middle" fill="white" fontSize="62" fontWeight="800" fontFamily="sans-serif">Patna → Mumbai</text>
+      <text x="3890" y="-15" textAnchor="middle" fill="#94a3b8" fontSize="36" fontFamily="monospace">1,847 KM · ETA 28h</text>
     </svg>
   )
 }
