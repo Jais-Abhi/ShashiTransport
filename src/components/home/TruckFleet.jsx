@@ -117,7 +117,7 @@ function SmallTruckSVG() {
 /* ─── Medium truck — small SVG scaled up, recolored blue ─── */
 function MediumTruckSVG() {
   return (
-    <svg viewBox="-350 -320 3950 2500" className="w-full h-auto" aria-hidden="true">
+    <svg viewBox="-100 -80 3350 2020" className="w-full h-auto" aria-hidden="true">
       <defs>
         <linearGradient id="medSkyGrad" x1="0" y1="0" x2="0" y2="1">
           <stop offset="0%" stopColor="#04091a"/>

@@ -162,8 +162,8 @@ function TruckScene() {
 
       {/* ── INFO BADGES (baked into SVG) ── */}
       {/* Fleet Online — top left */}
-      <rect x="60" y="-160" width="560" height="130" rx="22" fill="#f97316" opacity="0.93"/>
-      <text x="340" y="-105" textAnchor="middle" fill="white" fontSize="38" fontWeight="600" fontFamily="sans-serif" letterSpacing="4" opacity="0.85">FLEET ONLINE</text>
+      <rect x="60" y="-160" width="560" height="130" rx="22" fill="#f97316"/>
+      <text x="340" y="-105" textAnchor="middle" fill="white" fontSize="38" fontWeight="600" fontFamily="sans-serif" letterSpacing="4">FLEET ONLINE</text>
       <text x="340" y="-52" textAnchor="middle" fill="white" fontSize="72" fontWeight="900" fontFamily="sans-serif">234 Trucks</text>
 
       {/* Active Route — top right */}
