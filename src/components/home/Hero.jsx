@@ -48,7 +48,7 @@ function TruckScene() {
         <style>{`
           @keyframes roadMove {
             from { transform: translateX(0); }
-            to   { transform: translateX(-110px); }
+            to   { transform: translateX(110px); }
           }
           @keyframes smokeUp {
             0%   { opacity:0.7; transform:translateY(0) scale(1); }

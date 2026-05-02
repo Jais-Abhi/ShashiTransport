@@ -12,7 +12,7 @@ function MiniTruckSVG() {
           <stop offset="100%" stopColor="#e0f2fe"/>
         </linearGradient>
         <style>{`
-          @keyframes miniRoad { from{transform:translateX(0)} to{transform:translateX(-80px)} }
+          @keyframes miniRoad { from{transform:translateX(0)} to{transform:translateX(80px)} }
           .mini-road { animation: miniRoad 1s linear infinite; }
         `}</style>
       </defs>
@@ -59,7 +59,7 @@ function MediumTruckSVG() {
           <stop offset="100%" stopColor="#ffedd5"/>
         </linearGradient>
         <style>{`
-          @keyframes medRoad { from{transform:translateX(0)} to{transform:translateX(-80px)} }
+          @keyframes medRoad { from{transform:translateX(0)} to{transform:translateX(80px)} }
           .med-road { animation: medRoad 0.85s linear infinite; }
         `}</style>
       </defs>
@@ -120,7 +120,7 @@ function HeavyTruckSVG() {
           <stop offset="100%" stopColor="#dcfce7"/>
         </linearGradient>
         <style>{`
-          @keyframes hvyRoad { from{transform:translateX(0)} to{transform:translateX(-80px)} }
+          @keyframes hvyRoad { from{transform:translateX(0)} to{transform:translateX(80px)} }
           .hvy-road { animation: hvyRoad 0.75s linear infinite; }
         `}</style>
       </defs>
