@@ -99,7 +99,7 @@ function SmallTruckSVG() {
 /* ─── Medium truck — small SVG scaled up, recolored blue ─── */
 function MediumTruckSVG() {
   return (
-    <svg viewBox="0 0 3146 1700" className="w-full h-auto" aria-hidden="true">
+    <svg viewBox="100 80 2750 1460" className="w-full h-auto" aria-hidden="true">
       <rect width="3146" height="1700" fill="#eff6ff"/>
       <rect y="1350" width="3146" height="350" fill="#1e293b"/>
       <rect y="1370" width="3146" height="330" fill="#334155"/>
