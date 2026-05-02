@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom'
 /* ─── Small truck (from Figma) — used for Mini category ─── */
 function SmallTruckSVG() {
   return (
-    <svg viewBox="-1100 -900 6500 4300" className="w-full h-auto" aria-hidden="true">
+    <svg viewBox="-550 -420 4300 2750" className="w-full h-auto" aria-hidden="true">
       <defs>
         <linearGradient id="miniSkyGrad" x1="0" y1="0" x2="0" y2="1">
           <stop offset="0%" stopColor="#04091a"/>
@@ -17,22 +17,22 @@ function SmallTruckSVG() {
         </linearGradient>
       </defs>
       {/* Sky */}
-      <rect x="-1100" y="-900" width="6500" height="4300" fill="url(#miniSkyGrad)"/>
+      <rect x="-550" y="-420" width="4300" height="2750" fill="url(#miniSkyGrad)"/>
       {/* Stars */}
-      {[[200,-700],[600,-500],[1100,-750],[1700,-600],[2400,-710],[3100,-450],[3500,-680],[400,-380],[900,-560],[2000,-380],[2800,-520],[3800,-400],[4500,-650]].map(([sx,sy],i)=>(
+      {[[200,-300],[600,-180],[1100,-350],[1700,-200],[2400,-310],[3100,-150],[3500,-280],[400,-80],[900,-260],[2000,-80],[2800,-220]].map(([sx,sy],i)=>(
         <circle key={i} cx={sx} cy={sy} r={i%3===0?12:8} fill="white" opacity={i%2===0?0.6:0.35}/>
       ))}
       {/* Horizon glow */}
-      <rect x="-1100" y="1290" width="6500" height="80" fill="#ea580c" opacity="0.10"/>
+      <rect x="-550" y="1290" width="4300" height="80" fill="#ea580c" opacity="0.10"/>
       {/* Road surface */}
-      <rect x="-1100" y="1350" width="6500" height="1650" fill="#111827"/>
-      <rect x="-1100" y="1375" width="6500" height="1625" fill="#1a2640"/>
+      <rect x="-550" y="1350" width="4300" height="980" fill="#111827"/>
+      <rect x="-550" y="1375" width="4300" height="955" fill="#1a2640"/>
       {/* Road shoulder line */}
-      <rect x="-1100" y="1352" width="6500" height="7" fill="#f97316" opacity="0.25"/>
+      <rect x="-550" y="1352" width="4300" height="7" fill="#f97316" opacity="0.25"/>
       {/* Road center dashes */}
       <g>
         <animateTransform attributeName="transform" type="translate" from="0 0" to="400 0" dur="1.2s" repeatCount="indefinite"/>
-        {[-1200,-800,-400,0,400,800,1200,1600,2000,2400,2800,3200,3600,4000,4400].map((x,i)=>(
+        {[-800,-400,0,400,800,1200,1600,2000,2400,2800,3200,3600].map((x,i)=>(
           <rect key={i} x={x} y="1510" width="260" height="28" rx="14" fill="#f97316" opacity="0.5"/>
         ))}
       </g>
