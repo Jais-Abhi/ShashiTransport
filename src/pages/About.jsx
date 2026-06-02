@@ -50,7 +50,7 @@ export default function About() {
     <div>
       <PageHeader
         breadcrumb="Our Story"
-        title="About The Shashi Transport Company"
+        title="About Shashi Transport Company"
         subtitle="15 years of moving India's goods with integrity, reliability, and passion."
       />
 
@@ -65,7 +65,7 @@ export default function About() {
                 In 2009, Shashi Kumar started this company with 5 trucks and a simple promise: treat every client's cargo like your own. That promise built the foundation of what is today one of India's most trusted transport companies.
               </p>
               <p className="text-slate-600 leading-relaxed mb-8">
-                From the Gangetic plains of Bihar to the beaches of Goa, from the mountains of Kashmir to the tech parks of Bengaluru — our trucks carry not just goods, but the ambitions of thousands of Indian businesses.
+                From the plains of Uttar Pradesh and Bihar to the industrial corridors of West Bengal, Odisha, Assam and Jharkhand — our trucks carry not just goods, but the ambitions of thousands of businesses across eastern and central India.
               </p>
               <div className="grid grid-cols-2 gap-4">
                 {[

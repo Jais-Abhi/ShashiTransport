@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Truck, Menu, X, Phone, ChevronDown } from 'lucide-react'
+import { Menu, X, Phone, ChevronDown } from 'lucide-react'
 
 const navLinks = [
   { label: 'Home', to: '/' },
@@ -39,20 +39,19 @@ export default function Navbar() {
 
             {/* Logo */}
             <Link to="/" className="flex items-center gap-3 group">
-              <div className="relative">
-                <div className="w-10 h-10 bg-gradient-to-br from-[#1e3a5f] to-[#2d5282] rounded-xl flex items-center justify-center shadow-lg group-hover:shadow-[#1e3a5f]/30 transition-all duration-300 group-hover:scale-105">
-                  <Truck className="w-5 h-5 text-white" />
+                <img
+                  src={scrolled ? '/logo_1.png' : '/logo_2.png'}
+                  alt="Shashi Transport Company"
+                  className="w-18 h-16 object-contain rounded-xl shadow-lg"
+                />
+                <div className="leading-none">
+                  <span className={`font-bold text-base block transition-colors duration-300 ${scrolled ? 'text-[#1e3a5f]' : 'text-white'}`}>
+                    Shashi Transport Company
+                  </span>
+                  <span className={`text-[10px] tracking-widest uppercase transition-colors duration-300 ${scrolled ? 'text-[#f97316]' : 'text-orange-300'}`}>
+                    Logistics Partner
+                  </span>
                 </div>
-                <div className="absolute -top-1 -right-1 w-3 h-3 bg-[#f97316] rounded-full group-hover:scale-125 transition-transform duration-300" />
-              </div>
-              <div className="leading-none">
-                <span className={`font-bold text-base block transition-colors duration-300 ${scrolled ? 'text-[#1e3a5f]' : 'text-white'}`}>
-                  Shashi Transport
-                </span>
-                <span className={`text-[10px] tracking-widest uppercase transition-colors duration-300 ${scrolled ? 'text-[#f97316]' : 'text-orange-300'}`}>
-                  The Company
-                </span>
-              </div>
             </Link>
 
             {/* Desktop Nav */}

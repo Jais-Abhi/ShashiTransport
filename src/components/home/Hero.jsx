@@ -230,7 +230,7 @@ export default function Hero() {
 
             <motion.p initial={{opacity:0,y:20}} animate={{opacity:1,y:0}} transition={{duration:0.6,delay:0.3}}
               className="text-white/65 text-lg leading-relaxed mb-7 max-w-lg">
-              580+ trucks running every day — from Bihar's loading docks to Goa's ports, from Kashmir's mountain routes to Bengal's industrial belts. Full loads, part loads, cold chain, express.
+              580+ trucks running every day — serving Uttar Pradesh, Bihar, Jharkhand, West Bengal, Odisha and Assam with full loads, part loads, cold chain and express solutions.
             </motion.p>
 
             <motion.div initial={{opacity:0,y:20}} animate={{opacity:1,y:0}} transition={{duration:0.6,delay:0.4}}

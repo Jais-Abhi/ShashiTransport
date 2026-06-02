@@ -52,7 +52,7 @@ function SmallTruckSVG() {
       <rect x="918" y="25" width="60" height="1058" fill="#ED1B2E"/>
       <rect x="918" y="25" width="8" height="1058" fill="#EF4345"/>
       {/* Company text on trailer */}
-      <text x="2050" y="580" textAnchor="middle" fill="white" fontSize="95" fontWeight="900" fontFamily="sans-serif" opacity="0.7" letterSpacing="4">THE SHASHI TRANSPORT COMPANY</text>
+      <text x="2050" y="580" textAnchor="middle" fill="white" fontSize="95" fontWeight="900" fontFamily="sans-serif" opacity="0.7" letterSpacing="4">SHASHI TRANSPORT COMPANY</text>
       {/* Reflector panels */}
       <rect x="1564" y="1052" width="159" height="25" fill="#000024"/>
       <rect x="2323" y="1052" width="159" height="25" fill="#000024"/>
@@ -157,7 +157,7 @@ function MediumTruckSVG() {
       })}
       <rect x="2986" y="25" width="60" height="1058" fill="#1e3a5f"/>
       <rect x="918" y="25" width="60" height="1058" fill="#1e3a5f"/>
-      <text x="2050" y="555" textAnchor="middle" fill="white" fontSize="95" fontWeight="900" fontFamily="sans-serif" opacity="0.7" letterSpacing="4">THE SHASHI TRANSPORT COMPANY</text>
+      <text x="2050" y="555" textAnchor="middle" fill="white" fontSize="95" fontWeight="900" fontFamily="sans-serif" opacity="0.7" letterSpacing="4">SHASHI TRANSPORT COMPANY</text>
       <rect x="1564" y="1052" width="159" height="25" fill="#000024"/>
       <rect x="2323" y="1052" width="159" height="25" fill="#000024"/>
 

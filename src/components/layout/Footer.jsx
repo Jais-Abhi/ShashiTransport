@@ -67,12 +67,10 @@ export default function Footer() {
         {/* Brand */}
         <div className="lg:col-span-2">
           <Link to="/" className="flex items-center gap-3 mb-5">
-            <div className="w-11 h-11 bg-gradient-to-br from-[#f97316] to-[#ea6c0a] rounded-xl flex items-center justify-center shadow-lg">
-              <Truck className="w-6 h-6 text-white" />
-            </div>
+            <img src="/logo_2.png" alt="Shashi Transport Company" className="w-20 h-14 object-contain rounded-xl shadow-lg" />
             <div className="leading-none">
-              <span className="font-bold text-lg text-white block">Shashi Transport</span>
-              <span className="text-[10px] tracking-widest text-orange-400 uppercase">The Company</span>
+              <span className="font-bold text-lg text-white block">Shashi Transport Company</span>
+              <span className="text-[10px] tracking-widest text-orange-400 uppercase">Logistics Partner</span>
             </div>
           </Link>
           <p className="text-slate-400 text-sm leading-relaxed mb-6 max-w-xs">
@@ -127,7 +125,7 @@ export default function Footer() {
       {/* Bottom Bar */}
       <div className="border-t border-white/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 flex flex-col sm:flex-row items-center justify-between gap-3">
-          <p className="text-slate-500 text-sm">© {new Date().getFullYear()} The Shashi Transport Company. All rights reserved.</p>
+          <p className="text-slate-500 text-sm">© {new Date().getFullYear()} Shashi Transport Company. All rights reserved.</p>
           <p className="text-slate-600 text-xs">Delivering trust across India 🇮🇳</p>
         </div>
       </div>

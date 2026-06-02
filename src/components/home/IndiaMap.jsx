@@ -9,42 +9,42 @@ const HIGHLIGHTED = {
     trucks: '200+',
     districts: 'All 75 Districts',
     hubs: 'Lucknow, Kanpur, Varanasi, Agra',
-    desc: 'Our largest operational state — densest network covering every district.',
+    desc: 'Dense network coverage across the state — from industrial corridors to agricultural distribution hubs.',
   },
   br: {
     label: 'Bihar',
     trucks: '150+',
     districts: 'All 38 Districts',
     hubs: 'Patna, Gaya, Bhagalpur, Muzaffarpur',
-    desc: 'Our headquarters state — the heart of our operations since day one.',
+    desc: 'Headquarters state with strong operational control over freight moving through the Gangetic plains.',
   },
   jh: {
     label: 'Jharkhand',
     trucks: '90+',
     districts: 'All 24 Districts',
     hubs: 'Ranchi, Jamshedpur, Dhanbad, Bokaro',
-    desc: 'Resource-rich and industrially connected — optimized for heavy and bulk logistics.',
+    desc: 'Industrial and mineral logistics focus — built for heavy equipment, steel, and resource transport.',
   },
   wb: {
     label: 'West Bengal',
     trucks: '120+',
     districts: 'All 23 Districts',
     hubs: 'Kolkata, Howrah, Siliguri, Asansol',
-    desc: 'Eastern India gateway — connecting ports and industries.',
+    desc: 'Eastern gateway logistics — port, manufacturing, retail, and FMCG freight across the state.',
   },
   or: {
     label: 'Odisha',
     trucks: '85+',
     districts: 'All 30 Districts',
     hubs: 'Bhubaneswar, Cuttack, Rourkela, Paradeep',
-    desc: 'Strategic coastal state coverage — built for mineral, industrial, and agricultural freight.',
+    desc: 'Coastal and industrial coverage for mining, steel, agriculture, and port-facing distribution.',
   },
   as: {
     label: 'Assam',
     trucks: '70+',
     districts: 'All 33 Districts',
     hubs: 'Guwahati, Jorhat, Dibrugarh, Silchar',
-    desc: 'North East logistics specialist — reliable transit through challenging terrain.',
+    desc: 'North East specialist routes — reliable transit for tea, oil, FMCG, and regional freight.',
   },
 }
 
@@ -53,12 +53,18 @@ export default function IndiaMap() {
   const [tooltipPos, setTooltipPos] = useState({ x: 0, y: 0 })
 
   const handleMouseMove = (e) => {
-    const rect = e.currentTarget.closest('svg').getBoundingClientRect()
     const svgEl = e.currentTarget.closest('svg')
-    const pt = svgEl.createSVGPoint()
-    pt.x = e.clientX
-    pt.y = e.clientY
-    setTooltipPos({ x: e.clientX - rect.left, y: e.clientY - rect.top })
+    const rect = svgEl.getBoundingClientRect()
+    const wrapper = svgEl.parentElement
+    const wrapperRect = wrapper?.getBoundingClientRect() || rect
+    const x = e.clientX - rect.left
+    const y = e.clientY - rect.top
+    const tooltipWidth = 256
+    const rightEdge = wrapperRect.width - tooltipWidth - 16
+    const left = x > wrapperRect.width * 0.65 ? Math.max(x - tooltipWidth - 18, 12) : Math.min(x + 18, rightEdge)
+    const top = Math.min(Math.max(y - 90, 12), wrapperRect.height - 220)
+
+    setTooltipPos({ x: left, y: top })
   }
 
   const hovInfo = hovered ? (HIGHLIGHTED[hovered] || { label: india.locations.find(l => l.id === hovered)?.name }) : null

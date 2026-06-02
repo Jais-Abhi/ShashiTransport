@@ -30,7 +30,7 @@ export default function HomeCTA() {
             <span className="text-[#f97316]">Anywhere in India.</span>
           </h2>
           <p className="text-white/60 text-lg mb-10 max-w-xl mx-auto">
-            Join 10,000+ businesses that rely on The Shashi Transport Company for safe, fast, and affordable logistics.
+            Join 10,000+ businesses that rely on Shashi Transport Company for safe, fast, and affordable logistics.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">

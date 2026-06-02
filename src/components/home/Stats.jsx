@@ -3,7 +3,7 @@ import { motion, useInView } from 'framer-motion'
 
 const stats = [
   { emoji: '🚛', value: 580,    suffix: '+', label: 'Owned Trucks',         sub: 'All maintained in-house' },
-  { emoji: '🏭', value: 12,     suffix: '',  label: 'Loading Hubs',         sub: 'Across Bihar, UP & Bengal' },
+  { emoji: '🏭', value: 12,     suffix: '',  label: 'Loading Hubs',         sub: 'Across Bihar, UP, West Bengal, Odisha, Assam & Jharkhand' },
   { emoji: '📦', value: 500,    suffix: '+', label: 'Consignments/Day',     sub: 'Average daily dispatches' },
   { emoji: '🛣️', value: 4,      suffix: 'L+',label: 'KM Covered Daily',     sub: 'Combined fleet distance' },
   { emoji: '⚖️', value: 8000,   suffix: '+', label: 'Tons Moved/Month',     sub: 'Across all cargo types' },
@@ -69,7 +69,7 @@ export default function Stats() {
             <h2 className="text-3xl sm:text-4xl font-bold text-white">
               15 Years. One Promise. <span className="text-[#f97316]">Always On Time.</span>
             </h2>
-            <p className="text-white/50 mt-3 text-sm">Numbers that define The Shashi Transport Company</p>
+            <p className="text-white/50 mt-3 text-sm">Numbers that define Shashi Transport Company</p>
           </motion.div>
 
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
