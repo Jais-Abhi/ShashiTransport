@@ -1,6 +1,7 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
+import { truckSizes } from '../lib/truckConfig'
 import { Truck, Users, Target, Heart, ArrowRight, CheckCircle, Award, Globe, TrendingUp } from 'lucide-react'
 
 const timeline = [
@@ -102,6 +103,52 @@ export default function About() {
                 </div>
               </div>
             </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Fleet size highlights */}
+      <section className="section-pad bg-[#f0f6ff]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }} className="text-center mb-12">
+            <span className="inline-block bg-[#1e3a5f]/10 text-[#1e3a5f] font-semibold text-sm px-4 py-1.5 rounded-full mb-4 uppercase tracking-wide">Fleet by Size</span>
+            <h2 className="text-3xl sm:text-4xl font-bold text-[#1e3a5f] mb-4">Our standard truck sizes, built for every cargo type</h2>
+            <p className="text-slate-500 max-w-2xl mx-auto">From compact city deliveries to long-haul heavy loads, our owned fleet is optimized in 14, 17, 20, 22 and 24 feet configurations.</p>
+          </motion.div>
+          <div className="grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
+            {truckSizes.map((truck, i) => (
+              <motion.div key={truck.id} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.08 }} className="bg-white rounded-3xl border border-slate-200 p-6 shadow-sm hover:shadow-lg transition-all duration-300">
+                <div className="flex items-center justify-between mb-4">
+                  <div>
+                    <p className="text-xs uppercase tracking-[0.22em] text-slate-400 mb-2">{truck.badge}</p>
+                    <h3 className="text-2xl font-bold text-[#1e3a5f]">{truck.label}</h3>
+                  </div>
+                  <span className="text-sm font-bold text-[#f97316]">{truck.capacity}</span>
+                </div>
+                <p className="text-slate-500 text-sm leading-relaxed mb-4">{truck.description}</p>
+                <div className="grid gap-2 text-sm text-slate-600 mb-4">
+                  <div className="flex items-center justify-between border-t border-slate-100 pt-3">
+                    <span className="font-medium">Dimensions</span>
+                    <span>{truck.dimensions}</span>
+                  </div>
+                  <div className="flex items-center justify-between border-t border-slate-100 pt-3">
+                    <span className="font-medium">Volume</span>
+                    <span>{truck.volume}</span>
+                  </div>
+                </div>
+                <div className="rounded-3xl bg-[#1e3a5f]/5 border border-slate-200 p-4">
+                  <p className="text-[10px] uppercase tracking-[0.3em] text-slate-400 mb-2">Best For</p>
+                  <ul className="space-y-2 text-slate-600 text-sm">
+                    {truck.bestFor.slice(0, 3).map(item => (
+                      <li key={item} className="flex items-start gap-2">
+                        <span className="mt-0.5 h-2.5 w-2.5 rounded-full bg-[#f97316]" />
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>

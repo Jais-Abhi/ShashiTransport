@@ -8,7 +8,7 @@ const mockShipments = {
     from: 'Patna, Bihar', to: 'Kolkata, WB',
     cargo: 'Textile Goods — 2400 kg',
     driver: 'Ranjit Singh', driverPhone: '+91 99999 11111',
-    vehicle: 'BR 01 AB 1234 — 32ft Truck',
+    vehicle: 'BR 01 AB 1234 — 22ft Truck',
     timeline: [
       { status: 'Booked', time: 'May 01, 09:00 AM', done: true, loc: 'Patna HQ' },
       { status: 'Picked Up', time: 'May 01, 02:30 PM', done: true, loc: 'Patna, Bihar' },
@@ -22,7 +22,7 @@ const mockShipments = {
     from: 'Lucknow, UP', to: 'Goa',
     cargo: 'Furniture — 1800 kg',
     driver: 'Manoj Yadav', driverPhone: '+91 99999 22222',
-    vehicle: 'UP 32 CD 5678 — 40ft Truck',
+    vehicle: 'UP 32 CD 5678 — 24ft Truck',
     timeline: [
       { status: 'Booked', time: 'Apr 28, 10:00 AM', done: true, loc: 'Lucknow HQ' },
       { status: 'Picked Up', time: 'Apr 28, 04:00 PM', done: true, loc: 'Lucknow, UP' },

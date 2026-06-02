@@ -4,13 +4,6 @@ import { MapPin, Truck } from 'lucide-react'
 import india from '@svg-maps/india'
 
 const HIGHLIGHTED = {
-  jk: {
-    label: 'Jammu & Kashmir',
-    trucks: '80+',
-    districts: '20 Districts',
-    hubs: 'Jammu, Srinagar, Katra',
-    desc: 'Connecting the northern frontier — our fleet navigates high-altitude routes year-round.',
-  },
   up: {
     label: 'Uttar Pradesh',
     trucks: '200+',
@@ -25,6 +18,13 @@ const HIGHLIGHTED = {
     hubs: 'Patna, Gaya, Bhagalpur, Muzaffarpur',
     desc: 'Our headquarters state — the heart of our operations since day one.',
   },
+  jh: {
+    label: 'Jharkhand',
+    trucks: '90+',
+    districts: 'All 24 Districts',
+    hubs: 'Ranchi, Jamshedpur, Dhanbad, Bokaro',
+    desc: 'Resource-rich and industrially connected — optimized for heavy and bulk logistics.',
+  },
   wb: {
     label: 'West Bengal',
     trucks: '120+',
@@ -32,12 +32,19 @@ const HIGHLIGHTED = {
     hubs: 'Kolkata, Howrah, Siliguri, Asansol',
     desc: 'Eastern India gateway — connecting ports and industries.',
   },
-  ga: {
-    label: 'Goa',
-    trucks: '30+',
-    districts: 'Both Districts',
-    hubs: 'Panaji, Margao, Vasco',
-    desc: 'Coastal resort state — tourism & export logistics specialists.',
+  or: {
+    label: 'Odisha',
+    trucks: '85+',
+    districts: 'All 30 Districts',
+    hubs: 'Bhubaneswar, Cuttack, Rourkela, Paradeep',
+    desc: 'Strategic coastal state coverage — built for mineral, industrial, and agricultural freight.',
+  },
+  as: {
+    label: 'Assam',
+    trucks: '70+',
+    districts: 'All 33 Districts',
+    hubs: 'Guwahati, Jorhat, Dibrugarh, Silchar',
+    desc: 'North East logistics specialist — reliable transit through challenging terrain.',
   },
 }
 
@@ -75,7 +82,7 @@ export default function IndiaMap() {
             Pan India <span className="gradient-text">Network Map</span>
           </h2>
           <p className="text-slate-500 max-w-xl mx-auto">
-            Hover over the highlighted states to explore our operations. We serve all 28 states & 8 UTs.
+            Hover over the highlighted states to explore our coverage in Uttar Pradesh, Bihar, Jharkhand, West Bengal, Odisha, and Assam.
           </p>
         </motion.div>
 

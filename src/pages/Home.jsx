@@ -2,7 +2,7 @@ import React from 'react'
 import Hero from '../components/home/Hero'
 import CityTicker from '../components/home/CityTicker'
 import Stats from '../components/home/Stats'
-import TruckFleet from '../components/home/TruckFleet'
+import TruckSizes from '../components/home/TruckSizes'
 import ServicesPreview from '../components/home/ServicesPreview'
 import Process from '../components/home/Process'
 import IndiaMap from '../components/home/IndiaMap'
@@ -16,7 +16,7 @@ export default function Home() {
       <Hero />
       <CityTicker />
       <Stats />
-      <TruckFleet />
+      <TruckSizes />
       <ServicesPreview />
       <Process />
       <IndiaMap />

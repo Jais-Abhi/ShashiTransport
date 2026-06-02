@@ -1,9 +1,15 @@
 import React, { useState } from 'react'
 import { motion } from 'framer-motion'
+import { useSearchParams } from 'react-router-dom'
 import { ArrowRight, CheckCircle, Truck, Package, MapPin, Calendar, Weight, Phone } from 'lucide-react'
+import { truckSizes } from '../lib/truckConfig'
 
 const serviceTypes = ['Full Truck Load (FTL)', 'Part Load (LTL)', 'Cold Chain', 'Express Delivery', 'Insured Transport', 'Reverse Logistics']
-const vehicleTypes = ['22 ft Truck', '32 ft Truck', '40 ft Truck', 'Mini Truck (14 ft)', 'Refrigerated Van', 'Flatbed Trailer']
+const vehicleTypes = [
+  ...truckSizes.map(t => `${t.size} ft Truck`),
+  'Refrigerated Van',
+  'Flatbed Trailer'
+]
 
 const steps = [
   { num: 1, label: 'Shipment Details' },
@@ -12,10 +18,14 @@ const steps = [
 ]
 
 export default function GetQuote() {
+  const [searchParams] = useSearchParams()
+  const initialSize = searchParams.get('size')
+  const initialVehicle = initialSize ? `${initialSize} ft Truck` : ''
+
   const [step, setStep] = useState(1)
   const [done, setDone] = useState(false)
   const [form, setForm] = useState({
-    serviceType: '', vehicleType: '', weight: '', description: '',
+    serviceType: '', vehicleType: initialVehicle, weight: '', description: '',
     fromCity: '', fromState: '', toCity: '', toState: '', pickupDate: '', deliveryDate: '',
     name: '', company: '', phone: '', email: '', notes: '',
   })

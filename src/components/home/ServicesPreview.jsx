@@ -1,64 +1,8 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { ArrowRight, Truck, Package, Thermometer, Zap, Shield, RefreshCw } from 'lucide-react'
-
-const services = [
-  {
-    icon: Truck,
-    title: 'Full Truck Load',
-    desc: 'Dedicated trucks for large shipments — 22 ft, 32 ft, and 40 ft options available for maximum cargo capacity.',
-    color: '#f97316',
-    bg: '#fff8f3',
-    border: '#fed7aa',
-    badge: 'Most Popular',
-  },
-  {
-    icon: Package,
-    title: 'Part Load (LTL)',
-    desc: 'Ship smaller quantities without paying for a full truck. We consolidate your cargo with others going the same way.',
-    color: '#3b82f6',
-    bg: '#eff6ff',
-    border: '#bfdbfe',
-    badge: 'Cost-Effective',
-  },
-  {
-    icon: Thermometer,
-    title: 'Cold Chain Logistics',
-    desc: 'Temperature-controlled transport for perishables, pharmaceuticals, and sensitive goods. 2°C to 25°C range.',
-    color: '#06b6d4',
-    bg: '#ecfeff',
-    border: '#a5f3fc',
-    badge: 'Specialized',
-  },
-  {
-    icon: Zap,
-    title: 'Express Delivery',
-    desc: 'Priority lanes for time-critical cargo. Guaranteed delivery in 24–48 hours to major cities across India.',
-    color: '#f59e0b',
-    bg: '#fffbeb',
-    border: '#fde68a',
-    badge: 'Fastest',
-  },
-  {
-    icon: Shield,
-    title: 'Insured Transport',
-    desc: 'Every shipment is fully insured against transit damage. Comprehensive cargo protection gives you peace of mind.',
-    color: '#10b981',
-    bg: '#f0fdf4',
-    border: '#a7f3d0',
-    badge: 'Guaranteed',
-  },
-  {
-    icon: RefreshCw,
-    title: 'Return Logistics',
-    desc: 'Seamless reverse logistics for e-commerce returns, damaged goods retrieval, and supply chain optimization.',
-    color: '#8b5cf6',
-    bg: '#faf5ff',
-    border: '#ddd6fe',
-    badge: 'E-commerce',
-  },
-]
+import { ArrowRight } from 'lucide-react'
+import { services } from '../../lib/truckConfig'
 
 export default function ServicesPreview() {
   return (

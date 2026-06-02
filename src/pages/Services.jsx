@@ -1,82 +1,8 @@
 import React, { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Link } from 'react-router-dom'
-import { Truck, Package, Thermometer, Zap, Shield, RefreshCw, MapPin, Clock, CheckCircle, ArrowRight, ChevronDown } from 'lucide-react'
-
-const services = [
-  {
-    id: 'ftl',
-    icon: Truck,
-    title: 'Full Truck Load (FTL)',
-    tagline: 'Your cargo, your truck, your timeline.',
-    color: '#f97316',
-    bg: '#fff8f3',
-    desc: 'Book an entire truck exclusively for your shipment. Ideal for large consignments requiring direct, non-stop delivery without any intermediate handling or delays.',
-    features: ['22 ft, 32 ft & 40 ft options', 'Direct pickup to delivery', 'Dedicated driver assigned', 'Real-time GPS tracking', 'Secure sealed containers', 'Pan India coverage'],
-    ideal: 'Manufacturing, wholesale distributors, FMCG, auto parts, e-commerce',
-    transit: '1–5 days depending on distance',
-  },
-  {
-    id: 'ltl',
-    icon: Package,
-    title: 'Part Load (LTL)',
-    tagline: 'Pay only for what you ship.',
-    color: '#3b82f6',
-    bg: '#eff6ff',
-    desc: 'Ship smaller loads at full-truck prices without paying for empty space. We consolidate multiple consignments heading the same route to save you money.',
-    features: ['Minimum 100 kg', 'Hub-to-hub network', 'Competitive per-kg rates', 'Daily departures', 'Secure consolidation centres', 'Digital weight tracking'],
-    ideal: 'SMEs, startups, retail distributors, seasonal shippers',
-    transit: '2–7 days',
-  },
-  {
-    id: 'cold',
-    icon: Thermometer,
-    title: 'Cold Chain Logistics',
-    tagline: 'Temperature-perfect, every time.',
-    color: '#06b6d4',
-    bg: '#ecfeff',
-    desc: 'Fully refrigerated and temperature-controlled fleet for products that can\'t afford temperature deviations. From 2°C to 25°C — we maintain your spec throughout the journey.',
-    features: ['Multi-temperature zones', 'IoT temperature loggers', 'Compliance documentation', 'Pharma-grade vehicles', 'Cold storage network', 'FSSAI compliant'],
-    ideal: 'Pharmaceuticals, food & beverages, dairy, frozen goods, floriculture',
-    transit: '1–4 days',
-  },
-  {
-    id: 'express',
-    icon: Zap,
-    title: 'Express Delivery',
-    tagline: '24–48 hours. No compromises.',
-    color: '#f59e0b',
-    bg: '#fffbeb',
-    desc: 'Priority freight services for time-critical shipments. Our express network operates around the clock with dedicated priority lanes between major cities.',
-    features: ['24-hour metro delivery', '48-hour Tier-2 cities', 'Priority loading', 'Night movement enabled', 'Hourly tracking updates', 'Escalation support'],
-    ideal: 'Urgent industrial parts, medical supplies, event materials, perishables',
-    transit: '24–48 hours',
-  },
-  {
-    id: 'insured',
-    icon: Shield,
-    title: 'Insured Transport',
-    tagline: 'Complete peace of mind, guaranteed.',
-    color: '#10b981',
-    bg: '#f0fdf4',
-    desc: 'Every consignment is fully insured against transit damage, theft, and loss. Our comprehensive cargo insurance gives you complete financial protection from pickup to delivery.',
-    features: ['100% cargo value coverage', 'Instant claim processing', 'No excess on small claims', 'Digital e-POD evidence', 'IRDA-registered insurer', 'Transparent settlement'],
-    ideal: 'Electronics, high-value goods, art, antiques, expensive machinery',
-    transit: 'Standard / Express options',
-  },
-  {
-    id: 'reverse',
-    icon: RefreshCw,
-    title: 'Reverse Logistics',
-    tagline: 'Smooth returns, stronger supply chains.',
-    color: '#8b5cf6',
-    bg: '#faf5ff',
-    desc: 'End-to-end reverse logistics for e-commerce returns, product recalls, refurbishment pickups, and empty packaging retrieval. Streamlined processes that reduce costs.',
-    features: ['E-commerce integration API', 'QC at pickup point', 'Secure return warehousing', 'Refurbishment coordination', 'Waste disposal compliance', 'Detailed reporting'],
-    ideal: 'E-commerce, consumer electronics, retail chains, FMCG',
-    transit: '2–5 days return cycle',
-  },
-]
+import { MapPin, Clock, CheckCircle, ArrowRight, ChevronDown } from 'lucide-react'
+import { truckSizes, services } from '../lib/truckConfig'
 
 export default function Services() {
   const [activeService, setActiveService] = useState(null)
@@ -98,7 +24,7 @@ export default function Services() {
       {/* Service grid */}
       <section className="section-pad bg-[#f8fafc]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-6">
+          <div className="grid lg:grid-cols-2 gap-6 items-start">
             {services.map((svc, i) => {
               const Icon = svc.icon
               const isOpen = activeService === svc.id
@@ -167,6 +93,48 @@ export default function Services() {
                 </motion.div>
               )
             })}
+          </div>
+
+          <div className="mt-12 bg-slate-50 rounded-3xl border border-slate-200 p-8 shadow-sm">
+            <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4 mb-8">
+              <div>
+                <p className="text-sm font-semibold uppercase tracking-[0.28em] text-[#1e3a5f] mb-3">Fleet details</p>
+                <h2 className="text-3xl font-bold text-[#1e3a5f]">Standard truck sizes and specifications</h2>
+                <p className="text-slate-500 max-w-2xl mt-3">These are the core truck sizes used across our services. They are fleet details used for planning capacity, not separate service offerings.</p>
+              </div>
+              <div className="rounded-3xl bg-white border border-slate-200 p-4 text-sm text-slate-600">
+                <p className="font-semibold text-slate-700">Usage note:</p>
+                <p>Truck size is a planning detail. Select a service first, then choose the ideal size based on your cargo weight and volume.</p>
+              </div>
+            </div>
+            <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
+              {truckSizes.map((truck) => (
+                <div key={truck.id} className="rounded-3xl bg-white border border-slate-200 p-5">
+                  <div className="flex items-center justify-between mb-3">
+                    <div>
+                      <h3 className="text-xl font-semibold text-[#1e3a5f]">{truck.label}</h3>
+                      <p className="text-xs uppercase tracking-[0.28em] text-slate-400">{truck.badge}</p>
+                    </div>
+                    <span className="text-sm font-bold text-[#f97316]">{truck.capacity}</span>
+                  </div>
+                  <p className="text-sm text-slate-600 mb-4">{truck.description}</p>
+                  <div className="space-y-2 text-sm text-slate-500">
+                    <div className="flex justify-between border-t border-slate-100 pt-3">
+                      <span>Dimensions</span>
+                      <span>{truck.dimensions}</span>
+                    </div>
+                    <div className="flex justify-between border-t border-slate-100 pt-3">
+                      <span>Volume</span>
+                      <span>{truck.volume}</span>
+                    </div>
+                    <div className="flex justify-between border-t border-slate-100 pt-3">
+                      <span>Key uses</span>
+                      <span className="text-slate-700">{truck.bestFor[0]}</span>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>

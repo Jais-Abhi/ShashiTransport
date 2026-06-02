@@ -21,7 +21,7 @@ const links = {
     { label: 'Home', to: '/' },
     { label: 'About Us', to: '/about' },
     { label: 'Our Services', to: '/services' },
-    { label: 'Gallery', to: '/gallery' },
+    // { label: 'Gallery', to: '/gallery' },
   ],
   Services: [
     { label: 'Full Truck Load', to: '/services' },
