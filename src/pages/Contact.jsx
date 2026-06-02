@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { motion } from 'framer-motion'
 import { Phone, Mail, MapPin, Clock, Send, CheckCircle, MessageCircle } from 'lucide-react'
+import { contactNumber, contactTel, whatsappUrl } from '../lib/siteConfig'
 
 const SocialFacebook = () => (
   <svg viewBox="0 0 24 24" className="w-4 h-4 fill-current"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
@@ -13,7 +14,7 @@ const SocialLinkedin = () => (
 )
 
 const offices = [
-  { city: 'Patna (HQ)', address: 'Near Gandhi Maidan, Patna, Bihar - 800001', phone: '+91 88888 88888', email: 'patna@shashitransport.in' },
+  { city: 'Patna (HQ)', address: 'Near Gandhi Maidan, Patna, Bihar - 800001', phone: contactNumber, email: 'patna@shashitransport.in' },
   { city: 'Lucknow', address: 'Transport Nagar, Lucknow, UP - 226012', phone: '+91 77777 77777', email: 'lucknow@shashitransport.in' },
   { city: 'Kolkata', address: 'Netaji Subhas Dock, Kolkata, WB - 700043', phone: '+91 66666 66666', email: 'kolkata@shashitransport.in' },
   { city: 'Goa', address: 'Panaji Industrial Estate, Goa - 403001', phone: '+91 55555 55555', email: 'goa@shashitransport.in' },
@@ -105,8 +106,8 @@ export default function Contact() {
               {/* Quick contact */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
                 {[
-                  { icon: Phone, label: 'Call Us', value: '+91 88888 88888', sub: '24/7 Available', color: '#f97316', href: 'tel:+918888888888' },
-                  { icon: MessageCircle, label: 'WhatsApp', value: '+91 88888 88888', sub: 'Instant Response', color: '#25d366', href: 'https://wa.me/918888888888' },
+                  { icon: Phone, label: 'Call Us', value: contactNumber, sub: '24/7 Available', color: '#f97316', href: contactTel },
+                  { icon: MessageCircle, label: 'WhatsApp', value: contactNumber, sub: 'Instant Response', color: '#25d366', href: whatsappUrl },
                   { icon: Mail, label: 'Email Us', value: 'info@shashitransport.in', sub: 'Reply within 2 hrs', color: '#3b82f6', href: 'mailto:info@shashitransport.in' },
                   { icon: Clock, label: 'Business Hours', value: '24/7 Operations', sub: 'Support always on', color: '#8b5cf6', href: null },
                 ].map(({ icon: Icon, label, value, sub, color, href }) => (

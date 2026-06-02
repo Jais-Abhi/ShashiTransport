@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { gsap } from 'gsap'
 import { ArrowRight, Shield, Clock, MapPin, Phone } from 'lucide-react'
+import { contactTel, contactNumber, contactAddress, contactMapUrl } from '../../lib/siteConfig'
 
 const stats = [
   { val: '580+', label: 'Trucks' },
@@ -241,9 +242,15 @@ export default function Hero() {
                   <span className="text-white/80 text-sm">{text}</span>
                 </div>
               ))}
-              <a href="tel:+918888888888" className="flex items-center gap-2 bg-[#f97316]/20 border border-[#f97316]/40 rounded-lg px-3 py-2">
+              <a href={contactTel} className="flex items-center gap-2 bg-[#f97316]/20 border border-[#f97316]/40 rounded-lg px-3 py-2">
                 <Phone className="w-4 h-4 text-[#f97316]"/>
-                <span className="text-white/80 text-sm">+91 88888 88888</span>
+                <span className="text-white/80 text-sm">{contactNumber}</span>
+              </a>
+            </motion.div>
+            <motion.div initial={{opacity:0,y:20}} animate={{opacity:1,y:0}} transition={{duration:0.6,delay:0.45}} className="inline-flex items-center gap-3 rounded-full bg-white/10 border border-white/20 px-4 py-3 mb-8 text-sm font-medium text-white/90 shadow-sm">
+              <MapPin className="w-4 h-4 text-[#f97316]" />
+              <a href={contactMapUrl} target="_blank" rel="noreferrer" className="text-white/90 hover:text-white transition-colors duration-200">
+                {contactAddress}
               </a>
             </motion.div>
 

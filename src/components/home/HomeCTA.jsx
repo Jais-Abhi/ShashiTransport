@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { ArrowRight, Phone, MessageCircle } from 'lucide-react'
+import { contactTel, whatsappUrl } from '../../lib/siteConfig'
 
 export default function HomeCTA() {
   return (
@@ -42,14 +43,14 @@ export default function HomeCTA() {
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </Link>
             <a
-              href="tel:+918888888888"
+              href={contactTel}
               className="inline-flex items-center justify-center gap-2 bg-white/10 border-2 border-white/20 text-white font-bold px-10 py-4 rounded-xl hover:bg-white/20 transition-colors duration-200 text-lg"
             >
               <Phone className="w-5 h-5" />
               Call Now
             </a>
             <a
-              href="https://wa.me/918888888888"
+              href={whatsappUrl}
               target="_blank"
               rel="noreferrer"
               className="inline-flex items-center justify-center gap-2 bg-green-500/20 border-2 border-green-400/30 text-green-300 font-bold px-10 py-4 rounded-xl hover:bg-green-500/30 transition-colors duration-200 text-lg"

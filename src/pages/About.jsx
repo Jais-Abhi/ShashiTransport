@@ -2,7 +2,8 @@ import React from 'react'
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { truckSizes } from '../lib/truckConfig'
-import { Truck, Users, Target, Heart, ArrowRight, CheckCircle, Award, Globe, TrendingUp } from 'lucide-react'
+import { contactAddress, contactMapUrl } from '../lib/siteConfig'
+import { Truck, Users, Target, Heart, ArrowRight, CheckCircle, Award, Globe, TrendingUp, MapPin } from 'lucide-react'
 
 const timeline = [
   { year: '2009', title: 'Founded in Patna', desc: 'Started with 5 trucks and a vision to provide honest, reliable transport across Bihar.' },
@@ -21,7 +22,7 @@ const values = [
 ]
 
 const team = [
-  { name: 'Shashi Kumar', role: 'Founder & Managing Director', exp: '20+ years', initials: 'SK', color: '#f97316' },
+  { name: 'Bharat Chaturvedi', role: 'Owner & Fleet Manager', exp: '20+ years', initials: 'BC', color: '#f97316' },
   { name: 'Amit Prasad', role: 'Director of Operations', exp: '15+ years', initials: 'AP', color: '#3b82f6' },
   { name: 'Sunita Devi', role: 'Head of Finance', exp: '12+ years', initials: 'SD', color: '#10b981' },
   { name: 'Rajiv Ranjan', role: 'Head of Technology', exp: '10+ years', initials: 'RR', color: '#8b5cf6' },
@@ -62,7 +63,7 @@ export default function About() {
               <span className="inline-block bg-[#f97316]/10 text-[#f97316] font-semibold text-sm px-4 py-1.5 rounded-full mb-4 uppercase tracking-wide">Our Story</span>
               <h2 className="text-3xl font-bold text-[#1e3a5f] mb-6">Built on Trust,<br /><span className="gradient-text">Driven by Purpose</span></h2>
               <p className="text-slate-600 leading-relaxed mb-5">
-                In 2009, Shashi Kumar started this company with 5 trucks and a simple promise: treat every client's cargo like your own. That promise built the foundation of what is today one of India's most trusted transport companies.
+                In 2009, Bharat Chaturvedi started this company with 5 trucks and a simple promise: treat every client's cargo like your own. That promise built the foundation of what is today one of India's most trusted transport companies.
               </p>
               <p className="text-slate-600 leading-relaxed mb-8">
                 From the plains of Uttar Pradesh and Bihar to the industrial corridors of West Bengal, Odisha, Assam and Jharkhand — our trucks carry not just goods, but the ambitions of thousands of businesses across eastern and central India.
@@ -81,6 +82,16 @@ export default function About() {
                     <span className="text-sm font-medium text-[#1e3a5f]">{text}</span>
                   </div>
                 ))}
+              </div>
+              <div className="mt-6 rounded-3xl border border-slate-200 bg-[#f8fafc] p-6">
+                <h3 className="font-bold text-[#1e3a5f] mb-2">Our Delhi Office</h3>
+                <div className="inline-flex items-center gap-2 rounded-full bg-[#1e3a5f]/5 px-4 py-3 text-sm font-semibold text-[#1e3a5f] mb-3">
+                  <MapPin className="w-4 h-4 text-[#f97316]" />
+                  {contactAddress}
+                </div>
+                <a href={contactMapUrl} target="_blank" rel="noreferrer" className="text-[#1e3a5f] font-semibold hover:text-[#f97316] underline">
+                  View on Google Maps
+                </a>
               </div>
             </motion.div>
 
@@ -226,7 +237,7 @@ export default function About() {
       </section>
 
       {/* CTA */}
-      <section className="py-16 bg-[#1e3a5f]">
+      {/* <section className="py-16 bg-[#1e3a5f]">
         <div className="max-w-3xl mx-auto px-4 text-center">
           <h2 className="text-3xl font-bold text-white mb-4">Ready to partner with us?</h2>
           <p className="text-white/60 mb-8">Let's build a logistics partnership that drives your business forward.</p>
@@ -234,7 +245,7 @@ export default function About() {
             Get a Quote <ArrowRight className="w-5 h-5" />
           </Link>
         </div>
-      </section>
+      </section> */}
     </div>
   )
 }

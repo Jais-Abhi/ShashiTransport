@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Menu, X, Phone, ChevronDown } from 'lucide-react'
+import { Menu, X, MessageCircle, ChevronDown } from 'lucide-react'
+import { whatsappUrl } from '../../lib/siteConfig'
 
 const navLinks = [
   { label: 'Home', to: '/' },
@@ -77,9 +78,9 @@ export default function Navbar() {
 
             {/* CTA */}
             <div className="hidden lg:flex items-center gap-3">
-              <a href="tel:+918888888888" className={`flex items-center gap-2 text-sm font-medium transition-colors duration-200 ${scrolled ? 'text-[#1e3a5f]' : 'text-white/90'}`}>
-                <Phone className="w-4 h-4" />
-                +91 88888 88888
+              <a href={whatsappUrl} target="_blank" rel="noreferrer" className={`flex items-center gap-2 text-sm font-medium transition-colors duration-200 ${scrolled ? 'text-[#1e3a5f]' : 'text-white/90'}`}>
+                <MessageCircle className="w-4 h-4" />
+                WhatsApp
               </a>
               <Link
                 to="/get-quote"

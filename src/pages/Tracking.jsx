@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Search, MapPin, Truck, Package, CheckCircle, Clock, Phone, AlertCircle } from 'lucide-react'
+import { contactNumber, contactTel } from '../lib/siteConfig'
 
 const mockShipments = {
   'STC001234': {
@@ -117,7 +118,7 @@ export default function Tracking() {
                 <AlertCircle className="w-5 h-5 text-red-500 mt-0.5 shrink-0" />
                 <div>
                   <p className="font-bold text-red-700">Shipment Not Found</p>
-                  <p className="text-red-600 text-sm">No shipment found for "{query}". Please check your tracking number or contact us at +91 88888 88888.</p>
+                  <p className="text-red-600 text-sm">No shipment found for "{query}". Please check your tracking number or contact us at {contactNumber}.</p>
                 </div>
               </motion.div>
             )}
@@ -228,7 +229,7 @@ export default function Tracking() {
               <Package className="w-16 h-16 text-slate-200 mx-auto mb-4" />
               <h3 className="font-bold text-[#1e3a5f] text-lg mb-2">Track Your Shipment</h3>
               <p className="text-slate-500 text-sm mb-6">Enter your tracking number above to get real-time updates on your cargo's location and status.</p>
-              <p className="text-slate-400 text-sm">Need help? <a href="tel:+918888888888" className="text-[#f97316] font-semibold hover:underline">Call +91 88888 88888</a></p>
+              <p className="text-slate-400 text-sm">Need help? <a href={contactTel} className="text-[#f97316] font-semibold hover:underline">Call {contactNumber}</a></p>
             </div>
           )}
         </div>

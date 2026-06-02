@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { Truck, Phone, Mail, MapPin, ArrowRight } from 'lucide-react'
+import { contactNumber, contactTel, contactAddress, contactMapUrl } from '../../lib/siteConfig'
 
 const SocialFacebook = () => (
   <svg viewBox="0 0 24 24" className="w-4 h-4 fill-current"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
@@ -77,15 +78,17 @@ export default function Footer() {
             Trusted logistics partner across India. We deliver your cargo safely and on time — from the plains of UP to the coasts of Goa.
           </p>
           <div className="space-y-3">
-            <a href="tel:+918888888888" className="flex items-center gap-3 text-slate-300 hover:text-[#f97316] transition-colors duration-200 text-sm">
-              <Phone className="w-4 h-4 text-[#f97316]" /> +91 88888 88888
+            <a href={contactTel} className="flex items-center gap-3 text-slate-300 hover:text-[#f97316] transition-colors duration-200 text-sm">
+              <Phone className="w-4 h-4 text-[#f97316]" /> {contactNumber}
             </a>
             <a href="mailto:info@shashitransport.in" className="flex items-center gap-3 text-slate-300 hover:text-[#f97316] transition-colors duration-200 text-sm">
               <Mail className="w-4 h-4 text-[#f97316]" /> info@shashitransport.in
             </a>
-            <div className="flex items-start gap-3 text-slate-300 text-sm">
+            <div className="flex items-start gap-3 text-slate-100 text-sm bg-white/5 border border-white/10 rounded-2xl p-3 shadow-sm">
               <MapPin className="w-4 h-4 text-[#f97316] mt-0.5 shrink-0" />
-              <span>Patna, Bihar – 800001, India</span>
+              <a href={contactMapUrl} target="_blank" rel="noreferrer" className="font-semibold text-slate-100 hover:text-white transition-colors duration-200">
+                {contactAddress}
+              </a>
             </div>
           </div>
           <div className="flex gap-3 mt-6">

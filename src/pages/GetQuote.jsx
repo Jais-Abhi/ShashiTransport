@@ -1,10 +1,10 @@
-import React, { useState } from 'react'
+import React, { useState, useMemo, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { useSearchParams } from 'react-router-dom'
-import { ArrowRight, CheckCircle, Truck, Package, MapPin, Calendar, Weight, Phone } from 'lucide-react'
-import { truckSizes } from '../lib/truckConfig'
+import { ArrowRight, CheckCircle, Truck, Package, MapPin, Calendar, Weight, Phone, MessageCircle } from 'lucide-react'
+import { truckSizes, getQuoteServiceOptions } from '../lib/truckConfig'
+import { contactTel, whatsappUrl } from '../lib/siteConfig'
 
-const serviceTypes = ['Full Truck Load (FTL)', 'Part Load (LTL)', 'Cold Chain', 'Express Delivery', 'Insured Transport', 'Reverse Logistics']
 const vehicleTypes = [
   ...truckSizes.map(t => `${t.size} ft Truck`),
   'Refrigerated Van',
@@ -30,10 +30,52 @@ export default function GetQuote() {
     name: '', company: '', phone: '', email: '', notes: '',
   })
 
+  const availableServices = useMemo(
+    () => getQuoteServiceOptions(form.vehicleType, form.fromState, form.toState),
+    [form.vehicleType, form.fromState, form.toState]
+  )
+
+  useEffect(() => {
+    if (form.serviceType && !availableServices.includes(form.serviceType)) {
+      setForm(f => ({ ...f, serviceType: '' }))
+    }
+  }, [form.serviceType, availableServices])
+
   const handleChange = e => setForm(f => ({ ...f, [e.target.name]: e.target.value }))
   const next = () => setStep(s => Math.min(s + 1, 3))
   const prev = () => setStep(s => Math.max(s - 1, 1))
-  const submit = e => { e.preventDefault(); setDone(true) }
+
+  const formatWhatsAppMessage = data => {
+    return [
+      'Hello Shashi Transport Team,',
+      '',
+      'Please provide a quote with the following details:',
+      `Service Type: ${data.serviceType}`,
+      `Vehicle: ${data.vehicleType}`,
+      `Cargo Weight: ${data.weight}`,
+      `Cargo Description: ${data.description}`,
+      `Pickup: ${data.fromCity}, ${data.fromState}`,
+      `Delivery: ${data.toCity}, ${data.toState}`,
+      `Pickup Date: ${data.pickupDate}`,
+      `Expected Delivery Date: ${data.deliveryDate || 'N/A'}`,
+      '',
+      `Name: ${data.name}`,
+      `Company: ${data.company || 'N/A'}`,
+      `Phone: ${data.phone}`,
+      `Email: ${data.email || 'N/A'}`,
+      `Additional Notes: ${data.notes || 'N/A'}`,
+      '',
+      'Thank you.',
+    ].join('\n')
+  }
+
+  const submit = e => {
+    e.preventDefault()
+    const message = formatWhatsAppMessage(form)
+    const waLink = `${whatsappUrl}?text=${encodeURIComponent(message)}`
+    window.open(waLink, '_blank', 'noopener,noreferrer')
+    setDone(true)
+  }
 
   const inputCls = "w-full border border-slate-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#1e3a5f]/30 focus:border-[#1e3a5f] transition-all bg-white"
   const labelCls = "block text-sm font-medium text-slate-700 mb-1.5"
@@ -73,7 +115,7 @@ export default function GetQuote() {
                 </div>
               </div>
               <div className="flex gap-3 justify-center">
-                <a href="tel:+918888888888" className="flex items-center gap-2 bg-[#1e3a5f] text-white font-semibold px-6 py-3 rounded-xl hover:bg-[#2d5282] transition-colors">
+                <a href={contactTel} className="flex items-center gap-2 bg-[#1e3a5f] text-white font-semibold px-6 py-3 rounded-xl hover:bg-[#2d5282] transition-colors">
                   <Phone className="w-4 h-4" /> Call Now
                 </a>
                 <button onClick={() => { setDone(false); setStep(1); setForm({ serviceType:'',vehicleType:'',weight:'',description:'',fromCity:'',fromState:'',toCity:'',toState:'',pickupDate:'',deliveryDate:'',name:'',company:'',phone:'',email:'',notes:'' }) }} className="flex items-center gap-2 bg-slate-100 text-slate-700 font-semibold px-6 py-3 rounded-xl hover:bg-slate-200 transition-colors">
@@ -111,8 +153,9 @@ export default function GetQuote() {
                       <label className={labelCls}>Service Type *</label>
                       <select required name="serviceType" value={form.serviceType} onChange={handleChange} className={inputCls}>
                         <option value="">Choose service</option>
-                        {serviceTypes.map(s => <option key={s} value={s}>{s}</option>)}
+                        {availableServices.map(s => <option key={s} value={s}>{s}</option>)}
                       </select>
+                      <p className="text-xs text-slate-400 mt-2">Service options update based on truck size and whether pickup/delivery are in the same state.</p>
                     </div>
                     <div>
                       <label className={labelCls}>Preferred Vehicle *</label>
@@ -236,7 +279,7 @@ export default function GetQuote() {
                     </button>
                   ) : (
                     <motion.button whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} type="submit" className="flex-1 shimmer-btn text-white font-bold py-3.5 rounded-xl flex items-center justify-center gap-2">
-                      <Truck className="w-5 h-5" /> Submit Quote Request
+                      <MessageCircle className="w-5 h-5" /> Send Quote via WhatsApp
                     </motion.button>
                   )}
                 </div>

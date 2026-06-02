@@ -175,6 +175,53 @@ export const services = [
   },
 ];
 
+export const serviceTypes = [
+  'Full Truck Load (FTL)',
+  'Part Load (LTL)',
+  'Cold Chain',
+  'Express Delivery',
+  'Insured Transport',
+  'Reverse Logistics',
+];
+
+const normalizeString = value => value?.trim().toLowerCase() || '';
+
+export const getQuoteServiceOptions = (vehicleType = '', fromState = '', toState = '') => {
+  const normalizedVehicle = normalizeString(vehicleType)
+  const normalizedFrom = normalizeString(fromState)
+  const normalizedTo = normalizeString(toState)
+  const sameState = normalizedFrom && normalizedTo && normalizedFrom === normalizedTo
+
+  if (normalizedVehicle.includes('refrigerated')) {
+    return ['Cold Chain', 'Express Delivery', 'Insured Transport']
+  }
+
+  if (normalizedVehicle.includes('flatbed')) {
+    return ['Full Truck Load (FTL)', 'Express Delivery', 'Insured Transport', 'Reverse Logistics']
+  }
+
+  const sizeMatch = vehicleType.match(/^(\d+)\s*ft/i)
+  const size = sizeMatch ? parseInt(sizeMatch[1], 10) : null
+
+  if (size && size <= 17) {
+    return sameState
+      ? ['Part Load (LTL)', 'Cold Chain', 'Express Delivery']
+      : ['Full Truck Load (FTL)', 'Part Load (LTL)', 'Cold Chain', 'Express Delivery']
+  }
+
+  if (size && size <= 22) {
+    return sameState
+      ? ['Full Truck Load (FTL)', 'Part Load (LTL)', 'Cold Chain', 'Express Delivery', 'Insured Transport']
+      : ['Full Truck Load (FTL)', 'Part Load (LTL)', 'Cold Chain', 'Express Delivery', 'Insured Transport', 'Reverse Logistics']
+  }
+
+  if (size && size >= 24) {
+    return ['Full Truck Load (FTL)', 'Cold Chain', 'Express Delivery', 'Insured Transport', 'Reverse Logistics']
+  }
+
+  return serviceTypes
+}
+
 export const getTruckBySize = (sizeVal) => {
   const sizeNum = parseInt(sizeVal, 10);
   return truckSizes.find(t => t.size === sizeNum) || null;

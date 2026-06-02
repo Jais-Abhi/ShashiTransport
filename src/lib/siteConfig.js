@@ -1,0 +1,5 @@
+export const contactNumber = '+91 917479638558'
+export const contactTel = 'tel:+91917479638558'
+export const whatsappUrl = 'https://wa.me/917479638558'
+export const contactAddress = 'D-37, Oil Market, Mangolpuri Industrial Area, Phase-1, New Delhi – 110083'
+export const contactMapUrl = 'https://maps.app.goo.gl/SH8zY9i3vBpfz7qf8'

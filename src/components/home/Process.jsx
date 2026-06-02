@@ -1,13 +1,14 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 import { FileText, Truck, PackageCheck, BadgeCheck } from 'lucide-react'
+import { contactNumber, contactTel } from '../../lib/siteConfig'
 
 const steps = [
   {
     icon: FileText,
     num: '01',
     title: 'Book & Get Quote',
-    desc: 'Fill our quick form or call +91 88888 88888. Get a competitive lorry freight quote within 30 minutes. No hidden charges.',
+    desc: `Fill our quick form or call ${contactNumber}. Get a competitive lorry freight quote within 30 minutes. No hidden charges.`,
     tag: 'Instant Quote',
     color: '#f97316',
   },
@@ -129,7 +130,7 @@ export default function Process() {
             <p className="text-white/60 text-sm">Our dispatch team is online right now — call or book online in 2 minutes.</p>
           </div>
           <div className="flex gap-3 shrink-0">
-            <a href="tel:+918888888888"
+            <a href={contactTel}
               className="flex items-center gap-2 bg-white/15 border border-white/25 text-white font-semibold px-5 py-2.5 rounded-xl hover:bg-white/25 transition-colors duration-200 text-sm">
               📞 Call Now
             </a>
