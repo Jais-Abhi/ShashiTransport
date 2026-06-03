@@ -37,14 +37,14 @@ export default function HomeCTA() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               to="/get-quote"
-              className="group inline-flex items-center justify-center gap-2 shimmer-btn text-white font-bold px-10 py-4 rounded-xl shadow-2xl hover:-translate-y-1 transition-transform duration-200 text-lg"
+              className="group flex w-full sm:w-auto items-center justify-center gap-2 shimmer-btn text-white font-bold px-6 sm:px-10 py-4 rounded-xl shadow-2xl hover:-translate-y-1 transition-transform duration-200 text-lg"
             >
               Get Free Quote
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </Link>
             <a
               href={contactTel}
-              className="inline-flex items-center justify-center gap-2 bg-white/10 border-2 border-white/20 text-white font-bold px-10 py-4 rounded-xl hover:bg-white/20 transition-colors duration-200 text-lg"
+              className="flex w-full sm:w-auto items-center justify-center gap-2 bg-white/10 border-2 border-white/20 text-white font-bold px-6 sm:px-10 py-4 rounded-xl hover:bg-white/20 transition-colors duration-200 text-lg"
             >
               <Phone className="w-5 h-5" />
               Call Now
@@ -53,7 +53,7 @@ export default function HomeCTA() {
               href={whatsappUrl}
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center justify-center gap-2 bg-green-500/20 border-2 border-green-400/30 text-green-300 font-bold px-10 py-4 rounded-xl hover:bg-green-500/30 transition-colors duration-200 text-lg"
+              className="flex w-full sm:w-auto items-center justify-center gap-2 bg-green-500/20 border-2 border-green-400/30 text-green-300 font-bold px-6 sm:px-10 py-4 rounded-xl hover:bg-green-500/30 transition-colors duration-200 text-lg"
             >
               <MessageCircle className="w-5 h-5" />
               WhatsApp

@@ -191,7 +191,7 @@ export default function Hero() {
   }, [])
 
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden bg-gradient-to-br from-[#080f1e] via-[#1e3a5f] to-[#0f2540]">
+    <section className="relative min-h-[70vh] sm:min-h-screen flex items-center overflow-hidden bg-gradient-to-br from-[#080f1e] via-[#1e3a5f] to-[#0f2540]">
 
       {/* Grid lines */}
       <div className="absolute inset-0 opacity-[0.06]" style={{
@@ -211,69 +211,69 @@ export default function Hero() {
         />
       ))}
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-16 relative z-10 w-full">
-        <div className="grid lg:grid-cols-2 gap-10 items-center">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 sm:pt-24 pb-10 sm:pb-16 relative z-10 w-full">
+        <div className="grid lg:grid-cols-2 gap-6 sm:gap-10 items-center">
 
           {/* ── LEFT: Text ── */}
           <div>
             <motion.div initial={{opacity:0,y:20}} animate={{opacity:1,y:0}} transition={{duration:0.6}}
-              className="inline-flex items-center gap-2 bg-white/10 border border-white/20 rounded-full px-4 py-2 mb-6">
+              className="inline-flex items-center gap-2 bg-white/10 border border-white/20 rounded-full px-3 py-1.5 mb-4">
               <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse"/>
-              <span className="text-white/90 text-sm font-medium">Fleet Dispatching — 24 × 7</span>
+              <span className="text-white/90 text-xs sm:text-sm font-medium">Fleet Dispatching — 24 × 7</span>
             </motion.div>
 
             <motion.h1 initial={{opacity:0,y:30}} animate={{opacity:1,y:0}} transition={{duration:0.7,delay:0.15}}
-              className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight mb-5">
+              className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight sm:leading-tight mb-4">
               India's Road.<br/>
               <span className="text-[#f97316]">Our Trucks.</span><br/>
-              <span className="text-white/85 text-4xl sm:text-5xl">Your Cargo — Delivered.</span>
+              <span className="text-white/85 text-xl sm:text-3xl md:text-4xl">Your Cargo — Delivered.</span>
             </motion.h1>
 
             <motion.p initial={{opacity:0,y:20}} animate={{opacity:1,y:0}} transition={{duration:0.6,delay:0.3}}
-              className="text-white/65 text-lg leading-relaxed mb-7 max-w-lg">
+              className="text-white/65 text-sm sm:text-base leading-relaxed mb-5 max-w-md sm:max-w-lg">
               580+ trucks running every day — serving Uttar Pradesh, Bihar, Jharkhand, West Bengal, Odisha and Assam with full loads, part loads, cold chain and express solutions.
             </motion.p>
 
             <motion.div initial={{opacity:0,y:20}} animate={{opacity:1,y:0}} transition={{duration:0.6,delay:0.4}}
-              className="flex flex-wrap gap-2.5 mb-8">
+              className="flex flex-wrap gap-2 mb-6">
               {badges.map(({icon:Icon,text}) => (
-                <div key={text} className="flex items-center gap-2 bg-white/10 border border-white/20 rounded-lg px-3 py-2">
-                  <Icon className="w-4 h-4 text-[#f97316]"/>
-                  <span className="text-white/80 text-sm">{text}</span>
+                <div key={text} className="flex items-center gap-2 bg-white/8 border border-white/10 rounded-md px-2 py-1">
+                  <Icon className="w-3.5 h-3.5 text-[#f97316]"/>
+                  <span className="text-white/80 text-xs">{text}</span>
                 </div>
               ))}
-              <a href={contactTel} className="flex items-center gap-2 bg-[#f97316]/20 border border-[#f97316]/40 rounded-lg px-3 py-2">
-                <Phone className="w-4 h-4 text-[#f97316]"/>
-                <span className="text-white/80 text-sm">{contactNumber}</span>
+              <a href={contactTel} className="flex items-center gap-2 bg-[#f97316]/20 border border-[#f97316]/40 rounded-md px-2 py-1">
+                <Phone className="w-3.5 h-3.5 text-[#f97316]"/>
+                <span className="text-white/80 text-xs">{contactNumber}</span>
               </a>
             </motion.div>
-            <motion.div initial={{opacity:0,y:20}} animate={{opacity:1,y:0}} transition={{duration:0.6,delay:0.45}} className="inline-flex items-center gap-3 rounded-full bg-white/10 border border-white/20 px-4 py-3 mb-8 text-sm font-medium text-white/90 shadow-sm">
+            <motion.div initial={{opacity:0,y:20}} animate={{opacity:1,y:0}} transition={{duration:0.6,delay:0.45}} className="inline-flex items-center gap-2 rounded-full bg-white/6 border border-white/10 px-3 py-2 mb-6 text-xs sm:text-sm font-medium text-white/90 shadow-sm">
               <MapPin className="w-4 h-4 text-[#f97316]" />
-              <a href={contactMapUrl} target="_blank" rel="noreferrer" className="text-white/90 hover:text-white transition-colors duration-200">
+              <a href={contactMapUrl} target="_blank" rel="noreferrer" className="text-white/90 hover:text-white transition-colors duration-200 truncate max-w-[220px]">
                 {contactAddress}
               </a>
             </motion.div>
 
             <motion.div initial={{opacity:0,y:20}} animate={{opacity:1,y:0}} transition={{duration:0.6,delay:0.5}}
-              className="flex flex-wrap gap-4 mb-12">
+              className="flex flex-col sm:flex-row flex-wrap gap-3 mb-8">
               <Link to="/get-quote"
-                className="group flex items-center gap-2 shimmer-btn text-white font-bold px-8 py-4 rounded-xl shadow-2xl hover:-translate-y-1 transition-transform duration-200 text-base">
+                className="group flex w-full sm:w-auto justify-center items-center gap-2 shimmer-btn text-white font-bold px-6 py-3 sm:px-8 sm:py-4 rounded-xl shadow-2xl hover:-translate-y-1 transition-transform duration-200 text-sm sm:text-base">
                 Get Free Quote
-                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-200"/>
+                <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform duration-200"/>
               </Link>
               <Link to="/services"
-                className="flex items-center gap-2 bg-white/10 border border-white/25 text-white font-semibold px-8 py-4 rounded-xl hover:bg-white/20 transition-colors duration-200">
+                className="flex w-full sm:w-auto justify-center items-center gap-2 bg-white/10 border border-white/25 text-white font-semibold px-6 py-3 sm:px-8 sm:py-4 rounded-xl hover:bg-white/20 transition-colors duration-200 text-sm">
                 View Fleet & Services
               </Link>
             </motion.div>
 
             {/* Mini stats row */}
             <motion.div initial={{opacity:0,y:20}} animate={{opacity:1,y:0}} transition={{duration:0.6,delay:0.65}}
-              className="grid grid-cols-4 gap-3 pt-7 border-t border-white/10">
+              className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-4 border-t border-white/10">
               {stats.map((s,i) => (
-                <div key={i} className="text-center">
-                  <div className="text-2xl font-bold text-[#f97316]">{s.val}</div>
-                  <div className="text-white/50 text-xs mt-1">{s.label}</div>
+                <div key={i} className="flex flex-col items-center bg-white/4 sm:bg-transparent rounded-lg py-2 px-2">
+                  <div className="text-lg sm:text-2xl font-bold text-[#f97316]">{s.val}</div>
+                  <div className="text-white/60 text-[10px] sm:text-xs mt-1">{s.label}</div>
                 </div>
               ))}
             </motion.div>

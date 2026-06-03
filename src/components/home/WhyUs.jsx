@@ -41,7 +41,7 @@ export default function WhyUs() {
               </p>
 
               {/* Trust indicators */}
-              <div className="grid grid-cols-3 gap-4 mb-8">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
                 {[
                   { num: 'ISO', sub: '9001:2015 Certified' },
                   { num: '15+', sub: 'Years in Business' },

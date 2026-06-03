@@ -15,7 +15,7 @@ const TruckSilhouette = ({ size, accentColor }) => {
   const colorStart = accentColor;
   
   return (
-    <div className="w-full h-32 flex items-center justify-center p-2 bg-slate-950/40 rounded-2xl border border-slate-800/50 overflow-hidden relative group/truck">
+    <div className="w-full h-28 sm:h-32 flex items-center justify-center p-2 bg-slate-950/40 rounded-2xl border border-slate-800/50 overflow-hidden relative group/truck">
       {/* Grid Pattern in background */}
       <div className="absolute inset-0 opacity-10" style={{
         backgroundImage: 'linear-gradient(to right, #475569 1px, transparent 1px), linear-gradient(to bottom, #475569 1px, transparent 1px)',
@@ -165,7 +165,7 @@ export default function TruckSizes() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: idx * 0.1 }}
                 whileHover={{ y: -8 }}
-                className="bg-slate-900/60 backdrop-blur-xl border border-slate-800/80 rounded-3xl p-5 hover:border-slate-700/60 transition-all duration-300 flex flex-col justify-between group relative overflow-hidden"
+                className="bg-slate-900/60 backdrop-blur-xl border border-slate-800/80 rounded-3xl p-4 sm:p-5 hover:border-slate-700/60 transition-all duration-300 flex flex-col justify-between group relative overflow-hidden"
                 style={{
                   boxShadow: '0 4px 30px rgba(0, 0, 0, 0.2)'
                 }}
@@ -214,7 +214,7 @@ export default function TruckSizes() {
                   </div>
 
                   {/* Best For Section */}
-                  <div className="space-y-2 mb-6">
+                  <div className="hidden sm:block space-y-2 mb-6">
                     <p className="text-[10px] font-bold text-slate-500 uppercase tracking-widest">Suitable Commodities</p>
                     <ul className="space-y-1.5">
                       {truck.bestFor.map((item, i) => (
@@ -228,7 +228,7 @@ export default function TruckSizes() {
                 </div>
 
                 {/* Card Bottom / Details */}
-                <div>
+                <div className="hidden sm:block">
                   <div className="mb-4">
                     <p className="text-[9px] font-bold text-slate-500 uppercase tracking-widest mb-1.5">Popular Models</p>
                     <div className="flex flex-wrap gap-1">

@@ -31,25 +31,25 @@ export default function Navbar() {
         initial={{ y: -80 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.6, ease: 'easeOut' }}
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        className={`fixed top-0 left-0 right-0 z-50 overflow-x-hidden transition-all duration-300 ${
           scrolled ? 'bg-white/95 backdrop-blur-lg shadow-lg shadow-slate-200/60' : 'bg-transparent'
         }`}
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-18 py-3">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 overflow-x-hidden">
+          <div className="flex items-center justify-between h-14 sm:h-18 py-2 sm:py-3">
 
             {/* Logo */}
-            <Link to="/" className="flex items-center gap-3 group">
+            <Link to="/" className="flex items-center gap-3 group min-w-0">
                 <img
                   src={scrolled ? '/logo_1.png' : '/logo_2.png'}
                   alt="Shashi Transport Company"
-                  className="w-18 h-16 object-contain rounded-xl shadow-lg"
+                  className="w-10 h-10 sm:w-20 sm:h-16 object-contain rounded-xl shadow-lg"
                 />
-                <div className="leading-none">
-                  <span className={`font-bold text-base block transition-colors duration-300 ${scrolled ? 'text-[#1e3a5f]' : 'text-white'}`}>
+                <div className="leading-none min-w-0">
+                  <span className={`font-bold text-sm sm:text-base block truncate transition-colors duration-300 ${scrolled ? 'text-[#1e3a5f]' : 'text-white'}`}>
                     Shashi Transport Company
                   </span>
-                  <span className={`text-[10px] tracking-widest uppercase transition-colors duration-300 ${scrolled ? 'text-[#f97316]' : 'text-orange-300'}`}>
+                  <span className={`hidden sm:block text-[10px] tracking-widest uppercase transition-colors duration-300 ${scrolled ? 'text-[#f97316]' : 'text-orange-300'}`}>
                     Logistics Partner
                   </span>
                 </div>

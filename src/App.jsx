@@ -20,7 +20,7 @@ export default function App() {
     <Router>
       <ScrollToTop />
       <Navbar />
-      <main>
+      <main className="overflow-x-hidden">
         <Routes>
           <Route path="/"          element={<Home />} />
           <Route path="/about"     element={<About />} />

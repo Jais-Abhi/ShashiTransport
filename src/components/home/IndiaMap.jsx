@@ -70,7 +70,7 @@ export default function IndiaMap() {
   const hovInfo = hovered ? (HIGHLIGHTED[hovered] || { label: india.locations.find(l => l.id === hovered)?.name }) : null
 
   return (
-    <section className="section-pad bg-gradient-to-b from-white to-[#f0f6ff]">
+    <section className="section-pad bg-gradient-to-b from-white to-[#f0f6ff] overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Header */}

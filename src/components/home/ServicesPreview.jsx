@@ -6,7 +6,7 @@ import { services } from '../../lib/truckConfig'
 
 export default function ServicesPreview() {
   return (
-    <section className="section-pad bg-[#f8fafc]">
+    <section className="section-pad bg-[#f8fafc] overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         <motion.div
@@ -87,7 +87,7 @@ export default function ServicesPreview() {
         >
           <Link
             to="/services"
-            className="inline-flex items-center gap-2 bg-[#1e3a5f] text-white font-semibold px-8 py-4 rounded-xl hover:bg-[#2d5282] hover:-translate-y-0.5 transition-all duration-200 shadow-lg shadow-[#1e3a5f]/30"
+            className="inline-flex w-full sm:w-auto items-center justify-center gap-2 bg-[#1e3a5f] text-white font-semibold px-6 sm:px-8 py-4 rounded-xl hover:bg-[#2d5282] hover:-translate-y-0.5 transition-all duration-200 shadow-lg shadow-[#1e3a5f]/30"
           >
             View All Services <ArrowRight className="w-4 h-4" />
           </Link>
